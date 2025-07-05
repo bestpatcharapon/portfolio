@@ -4,6 +4,10 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import Image from "next/image"
 import {
   Moon,
   Sun,
@@ -16,12 +20,10 @@ import {
   Code,
   Database,
   Smartphone,
-  Globe2,
-  ArrowRight,
   Download,
+  ArrowRight,
   Linkedin,
   Twitter,
-  Star,
   Users,
   Award,
   Zap,
@@ -29,7 +31,6 @@ import {
   CheckCircle,
   TrendingUp,
   Briefcase,
-  GraduationCap,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -47,8 +48,8 @@ const translations = {
       title: "วิศวกรซอฟต์แวร์",
       description: "นักพัฒนาซอฟต์แวร์ที่หลงใหลในการสร้างสรรค์เทคโนโลยีที่ทำให้ชีวิตง่ายขึ้น สร้างประสบการณ์ดิจิทัลที่น่าประทับใจ",
       cta: "ดูผลงาน",
-      downloadCV: "ดาวน์โหลด CV",
       hireMeBtn: "จ้างฉัน",
+      downloadCV: "ดาวน์โหลด CV",
     },
     stats: {
       projects: "โปรเจค",
@@ -56,35 +57,13 @@ const translations = {
       clients: "ลูกค้า",
       awards: "รางวัล",
     },
-    services: {
-      title: "บริการของฉัน",
-      subtitle: "สิ่งที่ฉันสามารถช่วยคุณได้",
-      webDev: {
-        title: "พัฒนาเว็บไซต์",
-        desc: "สร้างเว็บไซต์ที่ทันสมัยและใช้งานง่าย",
-      },
-      mobileDev: {
-        title: "พัฒนาแอปมือถือ",
-        desc: "แอปพลิเคชันมือถือที่ใช้งานได้ทั้ง iOS และ Android",
-      },
-      uiux: {
-        title: "UI/UX Design",
-        desc: "ออกแบบ interface ที่สวยงามและใช้งานง่าย",
-      },
-      consulting: {
-        title: "ปรึกษาเทคนิค",
-        desc: "ให้คำปรึกษาด้านเทคโนโลยีและสถาปัตยกรรมระบบ",
-      },
-    },
+
     featured: {
       title: "โปรเจคเด่น",
       subtitle: "ผลงานล่าสุดที่น่าภูมิใจ",
       viewAll: "ดูทั้งหมด",
     },
-    testimonials: {
-      title: "ความคิดเห็นจากลูกค้า",
-      subtitle: "สิ่งที่ลูกค้าพูดถึงฉัน",
-    },
+
     quickAbout: {
       title: "เกี่ยวกับฉัน",
       subtitle: "ความหลงใหลในการเขียนโค้ด",
@@ -99,6 +78,12 @@ const translations = {
       experience: "ประสบการณ์",
       years: "3+ ปี",
     },
+    experience: {
+      title: "ประสบการณ์และการศึกษา",
+      subtitle: "เส้นทางการเรียนรู้และพัฒนาของฉัน",
+      work: "ประสบการณ์การทำงาน",
+      education: "การศึกษา",
+    },
     projects: {
       title: "โปรเจคของฉัน",
       subtitle: "ผลงานที่ฉันภูมิใจและโปรเจคที่น่าสนใจ",
@@ -112,6 +97,19 @@ const translations = {
       email: "อีเมล",
       phone: "โทรศัพท์",
       location: "ที่อยู่",
+      form: {
+        name: "ชื่อ",
+        nameLabel: "ชื่อของคุณ",
+        emailLabel: "อีเมลของคุณ",
+        subject: "หัวข้อ",
+        subjectLabel: "หัวข้อข้อความ",
+        message: "ข้อความ",
+        messageLabel: "ข้อความของคุณ",
+        send: "ส่งข้อความ",
+        sending: "กำลังส่ง...",
+        success: "ส่งข้อความสำเร็จ!",
+        error: "เกิดข้อผิดพลาด กรุณาลองใหม่",
+      },
     },
   },
   en: {
@@ -128,8 +126,8 @@ const translations = {
       description:
         "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
       cta: "View My Work",
-      downloadCV: "Download CV",
       hireMeBtn: "Hire Me",
+      downloadCV: "Download CV",
     },
     stats: {
       projects: "Projects",
@@ -137,35 +135,13 @@ const translations = {
       clients: "Happy Clients",
       awards: "Awards",
     },
-    services: {
-      title: "My Services",
-      subtitle: "What I can help you with",
-      webDev: {
-        title: "Web Development",
-        desc: "Building modern and user-friendly websites",
-      },
-      mobileDev: {
-        title: "Mobile Development",
-        desc: "Cross-platform mobile apps for iOS and Android",
-      },
-      uiux: {
-        title: "UI/UX Design",
-        desc: "Beautiful and intuitive interface design",
-      },
-      consulting: {
-        title: "Tech Consulting",
-        desc: "Technology consulting and system architecture advice",
-      },
-    },
+
     featured: {
       title: "Featured Projects",
       subtitle: "Latest work I'm proud of",
       viewAll: "View All",
     },
-    testimonials: {
-      title: "Client Testimonials",
-      subtitle: "What clients say about me",
-    },
+
     quickAbout: {
       title: "About Me",
       subtitle: "Passionate about coding",
@@ -181,6 +157,12 @@ const translations = {
       experience: "Experience",
       years: "3+ Years",
     },
+    experience: {
+      title: "Experience & Education",
+      subtitle: "My learning and development journey",
+      work: "Work Experience",
+      education: "Education",
+    },
     projects: {
       title: "My Projects",
       subtitle: "Featured work and interesting projects I'm proud of",
@@ -194,6 +176,19 @@ const translations = {
       email: "Email",
       phone: "Phone",
       location: "Location",
+      form: {
+        name: "Name",
+        nameLabel: "Your Name",
+        emailLabel: "Your Email",
+        subject: "Subject",
+        subjectLabel: "Message Subject",
+        message: "Message",
+        messageLabel: "Your Message",
+        send: "Send Message",
+        sending: "Sending...",
+        success: "Message sent successfully!",
+        error: "Something went wrong. Please try again.",
+      },
     },
   },
 }
@@ -208,7 +203,7 @@ const projects = [
     tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
     github: "https://github.com",
     demo: "https://demo.com",
-    icon: <Globe2 className="w-6 h-6" />,
+    icon: <Globe className="w-6 h-6" />,
     gradient: "from-blue-500 to-purple-600",
   },
   {
@@ -260,28 +255,49 @@ const skills = [
   { name: "PostgreSQL", level: 75 },
 ]
 
-const testimonials = [
+const experiences = [
   {
-    name: "Sarah Johnson",
-    nameTh: "ซาร่าห์ จอห์นสัน",
-    role: "CEO, TechStart",
-    roleTh: "ซีอีโอ, เทคสตาร์ท",
-    content:
-      "Patcharapon delivered exceptional work on our e-commerce platform. His attention to detail and technical expertise exceeded our expectations.",
-    contentTh: "ปัชราพลส่งมอบงานที่ยอดเยี่ยมในแพลตฟอร์มอีคอมเมิร์ซของเรา ความใส่ใจในรายละเอียดและความเชี่ยวชาญด้านเทคนิคเกินความคาดหมาย",
-    rating: 5,
+    type: "work",
+    title: "Senior Software Developer",
+    titleTh: "นักพัฒนาซอฟต์แวร์อาวุโส",
+    company: "Tech Innovation Co.",
+    companyTh: "บริษัท เทค อินโนเวชั่น จำกัด",
+    period: "2022 - Present",
+    periodTh: "2022 - ปัจจุบัน",
+    location: "Bangkok, Thailand",
+    locationTh: "กรุงเทพฯ, ประเทศไทย",
+    description: "Led development of multiple web applications using React, Node.js, and MongoDB. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+    descriptionTh: "นำทีมพัฒนาเว็บแอปพลิเคชันหลายโปรเจคด้วย React, Node.js และ MongoDB ทำงานร่วมกับทีมสหสาขาเพื่อส่งมอบโซลูชันซอฟต์แวร์คุณภาพสูง",
   },
   {
-    name: "Michael Chen",
-    nameTh: "ไมเคิล เฉิน",
-    role: "Product Manager, InnovateCorp",
-    roleTh: "ผู้จัดการผลิตภัณฑ์, อินโนเวทคอร์ป",
-    content:
-      "Working with Patcharapon was a pleasure. He's professional, communicative, and delivers high-quality code on time.",
-    contentTh: "การทำงานกับปัชราพลเป็นเรื่องที่น่ายินดี เขามีความเป็นมืออาชีพ สื่อสารได้ดี และส่งมอบโค้ดคุณภาพสูงตรงเวลา",
-    rating: 5,
+    type: "work",
+    title: "Frontend Developer",
+    titleTh: "นักพัฒนาเว็บส่วนหน้า",
+    company: "Digital Solutions Ltd.",
+    companyTh: "บริษัท ดิจิทัล โซลูชั่นส์ จำกัด",
+    period: "2020 - 2022",
+    periodTh: "2020 - 2022",
+    location: "Chiang Mai, Thailand",
+    locationTh: "เชียงใหม่, ประเทศไทย",
+    description: "Developed responsive web interfaces and improved user experience for e-commerce platforms. Worked with modern frameworks and tools.",
+    descriptionTh: "พัฒนาส่วนติดต่อผู้ใช้เว็บแบบ responsive และปรับปรุงประสบการณ์ผู้ใช้สำหรับแพลตฟอร์มอีคอมเมิร์ซ ทำงานกับ framework และเครื่องมือสมัยใหม่",
+  },
+  {
+    type: "education",
+    title: "Bachelor of Computer Science",
+    titleTh: "วิทยาศาสตรบัณฑิต สาขาวิทยาการคอมพิวเตอร์",
+    company: "Kasetsart University",
+    companyTh: "มหาวิทยาลัยเกษตรศาสตร์",
+    period: "2016 - 2020",
+    periodTh: "2016 - 2020",
+    location: "Bangkok, Thailand",
+    locationTh: "กรุงเทพฯ, ประเทศไทย",
+    description: "Graduated with First Class Honors. Specialized in software engineering and web development. Active in programming competitions and tech communities.",
+    descriptionTh: "จบการศึกษาด้วยเกียรตินิยมอันดับหนึ่ง เชี่ยวชาญด้านวิศวกรรมซอฟต์แวร์และการพัฒนาเว็บ เข้าร่วมแข่งขันเขียนโปรแกรมและชุมชนเทคโนโลยี",
   },
 ]
+
+
 
 export default function Portfolio() {
   const [isDark, setIsDark] = useState(false)
@@ -376,81 +392,131 @@ export default function Portfolio() {
       {activeSection === "home" && (
         <div className="space-y-20">
           {/* Main Hero */}
-          <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000" />
+          <section className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Subtle Background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/2 rounded-full blur-3xl" />
 
-            {/* Floating Elements */}
-            <div className="absolute top-40 right-20 animate-bounce delay-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg rotate-12 opacity-20" />
-            </div>
-            <div className="absolute bottom-40 left-20 animate-bounce delay-700">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full opacity-20" />
-            </div>
+            <div className="max-w-6xl mx-auto relative z-10">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Text Content */}
+                <div className="text-center lg:text-left">
+                  <div className="animate-fade-in-up">
+                    {/* Profile Picture - Mobile Only */}
+                    <div className="lg:hidden mb-12">
+                      <div className="w-28 h-28 mx-auto mb-6 relative">
+                        <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 rounded-full flex items-center justify-center border border-border/50 shadow-sm hover:shadow-md transition-all duration-300">
+                          {/* Placeholder - Replace with actual profile image */}
+                          <div className="text-3xl">👨‍💻</div>
+                          {/* When you have a profile picture, replace the above with:
+                          <Image
+                            src="/profile-picture.jpg"
+                            alt="Patcharapon Yoriya"
+                            width={112}
+                            height={112}
+                            className="rounded-full object-cover"
+                          />
+                          */}
+                        </div>
+                      </div>
+                    </div>
 
-            <div className="max-w-6xl mx-auto text-center relative z-10">
-              <div className="animate-fade-in-up">
-                <p className="text-lg text-muted-foreground mb-4 animate-fade-in-up delay-100">{t.hero.greeting}</p>
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200">
-                  {t.hero.name}
-                </h1>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6 text-muted-foreground animate-fade-in-up delay-300">
-                  {t.hero.title}
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
-                  {t.hero.description}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-500">
-                  <Button size="lg" onClick={() => setActiveSection("projects")} className="group">
-                    {t.hero.cta}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button size="lg" variant="outline" className="group">
-                    <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                    {t.hero.downloadCV}
-                  </Button>
-                  <Button size="lg" variant="secondary" className="group">
-                    <Heart className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                    {t.hero.hireMeBtn}
-                  </Button>
+                    <p className="text-lg text-muted-foreground mb-4 animate-fade-in-up delay-100">{t.hero.greeting}</p>
+                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200">
+                      {t.hero.name}
+                    </h1>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6 text-muted-foreground animate-fade-in-up delay-300">
+                      {t.hero.title}
+                    </h2>
+                    <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up delay-400">
+                      {t.hero.description}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start animate-fade-in-up delay-500">
+                      <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border-0">
+                        {t.hero.cta}
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                      <Button size="lg" variant="outline" className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:bg-muted hover:border-border px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" asChild>
+                        <a href="/cv.pdf" download target="_blank">
+                          <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          {t.hero.downloadCV}
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image/GIF Section */}
+                <div className="flex justify-center lg:justify-end">
+                  <div className="relative">
+                    <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl h-80 md:h-96 lg:h-[500px] relative">
+                      {/* Decorative Elements */}
+                      <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 animate-pulse" />
+                      <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full opacity-20 animate-pulse delay-1000" />
+                      <div className="absolute top-10 right-10 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg opacity-15 animate-pulse delay-500 rotate-12" />
+                      
+                      {/* Main Image/GIF Container */}
+                      <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] animate-fade-in-up delay-600 shadow-lg hover:shadow-2xl overflow-hidden">
+                        {/* Demo GIF - Replace with your own */}
+                        <div className="relative w-full h-full">
+                          <Image
+                            src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif"
+                            alt="Demo Animation - Coding"
+                            width={640}
+                            height={500}
+                            className="rounded-2xl object-cover w-full h-full"
+                            priority
+                            unoptimized
+                          />
+                          {/* Overlay with instructions */}
+                          <div className="absolute inset-0 bg-black/20 rounded-2xl flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div className="text-center bg-white/90 dark:bg-black/90 p-4 rounded-lg">
+                              <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                                {language === "th" ? "ตัวอย่าง GIF - เปลี่ยนเป็นของคุณได้" : "Demo GIF - Replace with yours"}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Stats Section */}
-          <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Briefcase className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                    <Briefcase className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">20+</div>
-                  <div className="text-muted-foreground">{t.stats.projects}</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">20+</div>
+                  <div className="text-muted-foreground text-sm">{t.stats.projects}</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <TrendingUp className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                    <TrendingUp className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">3+</div>
-                  <div className="text-muted-foreground">{t.stats.experience}</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">3+</div>
+                  <div className="text-muted-foreground text-sm">{t.stats.experience}</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Users className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                    <Users className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">15+</div>
-                  <div className="text-muted-foreground">{t.stats.clients}</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">15+</div>
+                  <div className="text-muted-foreground text-sm">{t.stats.clients}</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Award className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                    <Award className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">5</div>
-                  <div className="text-muted-foreground">{t.stats.awards}</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">5</div>
+                  <div className="text-muted-foreground text-sm">{t.stats.awards}</div>
                 </div>
               </div>
             </div>
@@ -510,50 +576,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* Services Section */}
-          <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.services.title}</h2>
-                <p className="text-lg text-muted-foreground mb-6">{t.services.subtitle}</p>
-                <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
-              </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20 group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Globe2 className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-3">{t.services.webDev.title}</h3>
-                  <p className="text-muted-foreground">{t.services.webDev.desc}</p>
-                </Card>
-
-                <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20 group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Smartphone className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-3">{t.services.mobileDev.title}</h3>
-                  <p className="text-muted-foreground">{t.services.mobileDev.desc}</p>
-                </Card>
-
-                <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20 group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Code className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-3">{t.services.uiux.title}</h3>
-                  <p className="text-muted-foreground">{t.services.uiux.desc}</p>
-                </Card>
-
-                <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20 group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <GraduationCap className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-3">{t.services.consulting.title}</h3>
-                  <p className="text-muted-foreground">{t.services.consulting.desc}</p>
-                </Card>
-              </div>
-            </div>
-          </section>
 
           {/* Featured Projects */}
           <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -569,16 +592,16 @@ export default function Portfolio() {
                 </Button>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-6">
                 {projects.slice(0, 2).map((project, index) => (
                   <Card
                     key={index}
-                    className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/20 overflow-hidden"
+                    className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm overflow-hidden"
                   >
-                    <div className={`h-2 bg-gradient-to-r ${project.gradient}`} />
+                    <div className="h-1 bg-primary/50" />
                     <CardHeader className="pb-4">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className={`p-2 rounded-lg bg-gradient-to-r ${project.gradient} text-white`}>
+                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
                           {project.icon}
                         </div>
                         <CardTitle className="text-xl group-hover:text-primary transition-colors">
@@ -595,12 +618,12 @@ export default function Portfolio() {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                            className="hover:bg-primary/10 hover:text-primary transition-colors text-xs"
                           >
                             {tech}
                           </Badge>
                         ))}
-                        {project.tech.length > 3 && <Badge variant="outline">+{project.tech.length - 3}</Badge>}
+                        {project.tech.length > 3 && <Badge variant="outline" className="text-xs">+{project.tech.length - 3}</Badge>}
                       </div>
                       <div className="flex gap-3">
                         <Button variant="default" size="sm" asChild className="flex-1 group/btn">
@@ -623,42 +646,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* Testimonials */}
-          <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.testimonials.title}</h2>
-                <p className="text-lg text-muted-foreground mb-6">{t.testimonials.subtitle}</p>
-                <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
-              </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                {testimonials.map((testimonial, index) => (
-                  <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground mb-6 italic leading-relaxed">
-                      "{language === "th" ? testimonial.contentTh : testimonial.content}"
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary/60 rounded-full flex items-center justify-center text-white font-semibold">
-                        {(language === "th" ? testimonial.nameTh : testimonial.name).charAt(0)}
-                      </div>
-                      <div>
-                        <div className="font-semibold">{language === "th" ? testimonial.nameTh : testimonial.name}</div>
-                        <div className="text-sm text-muted-foreground">
-                          {language === "th" ? testimonial.roleTh : testimonial.role}
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </section>
         </div>
       )}
 
@@ -675,37 +663,93 @@ export default function Portfolio() {
               <div className="space-y-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">{t.about.description}</p>
 
-                <div className="grid grid-cols-2 gap-6">
-                  <Card className="p-6 text-center border-2 hover:border-primary/50 transition-colors">
-                    <div className="text-3xl font-bold text-primary mb-2">{t.about.years}</div>
-                    <div className="text-muted-foreground">{t.about.experience}</div>
+                <div className="grid grid-cols-2 gap-4">
+                  <Card className="p-6 text-center border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                    <div className="text-3xl font-bold text-foreground mb-2">{t.about.years}</div>
+                    <div className="text-muted-foreground text-sm">{t.about.experience}</div>
                   </Card>
-                  <Card className="p-6 text-center border-2 hover:border-primary/50 transition-colors">
-                    <div className="text-3xl font-bold text-primary mb-2">20+</div>
-                    <div className="text-muted-foreground">Projects</div>
+                  <Card className="p-6 text-center border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                    <div className="text-3xl font-bold text-foreground mb-2">20+</div>
+                    <div className="text-muted-foreground text-sm">Projects</div>
                   </Card>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <h3 className="text-2xl font-semibold mb-6">{t.about.skills}</h3>
-                <div className="space-y-4">
+                
+                {/* Skills Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {skills.map((skill) => (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2">
-                        <div
-                          className="bg-gradient-to-r from-primary to-primary/60 h-2 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
+                    <div key={skill.name} className="group">
+                      <Card className="p-4 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                        <div className="w-8 h-8 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
+                          <Code className="w-4 h-4 text-primary" />
+                        </div>
+                        <h4 className="font-medium text-sm mb-3">{skill.name}</h4>
+                        <div className="w-full bg-muted/50 rounded-full h-1">
+                          <div
+                            className="bg-primary h-1 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                      </Card>
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Experience Section */}
+      {activeSection === "about" && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.experience.title}</h2>
+              <p className="text-lg text-muted-foreground mb-6">{t.experience.subtitle}</p>
+              <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+            </div>
+
+            <div className="space-y-6">
+              {experiences.map((exp, index) => (
+                <Card key={index} className="p-6 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+                        {exp.type === 'work' ? (
+                          <Briefcase className="w-5 h-5 text-primary" />
+                        ) : (
+                          <Users className="w-5 h-5 text-primary" />
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {language === "th" ? exp.titleTh : exp.title}
+                        </h3>
+                        <span className="text-sm text-muted-foreground">
+                          {language === "th" ? exp.periodTh : exp.period}
+                        </span>
+                      </div>
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h4 className="text-base font-medium text-primary">
+                          {language === "th" ? exp.companyTh : exp.company}
+                        </h4>
+                        <span className="text-sm text-muted-foreground">
+                          {language === "th" ? exp.locationTh : exp.location}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed text-sm">
+                        {language === "th" ? exp.descriptionTh : exp.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -721,16 +765,16 @@ export default function Portfolio() {
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {projects.map((project, index) => (
                 <Card
                   key={index}
-                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/20 overflow-hidden"
+                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm overflow-hidden"
                 >
-                  <div className={`h-2 bg-gradient-to-r ${project.gradient}`} />
+                  <div className="h-1 bg-primary/50" />
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className={`p-2 rounded-lg bg-gradient-to-r ${project.gradient} text-white`}>
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
                         {project.icon}
                       </div>
                       <CardTitle className="text-xl group-hover:text-primary transition-colors">
@@ -747,7 +791,7 @@ export default function Portfolio() {
                         <Badge
                           key={tech}
                           variant="secondary"
-                          className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="hover:bg-primary/10 hover:text-primary transition-colors text-xs"
                         >
                           {tech}
                         </Badge>
@@ -786,46 +830,94 @@ export default function Portfolio() {
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <Card className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-white" />
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{t.contact.email}</h3>
-                <p className="text-muted-foreground">patcharaponyo65@gmail.com</p>
+                <h3 className="font-medium text-base mb-2">{t.contact.email}</h3>
+                <p className="text-muted-foreground text-sm">patcharaponyo65@gmail.com</p>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-white" />
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{t.contact.phone}</h3>
-                <p className="text-muted-foreground">+66 080 979 2185</p>
+                <h3 className="font-medium text-base mb-2">{t.contact.phone}</h3>
+                <p className="text-muted-foreground text-sm">+66 080 979 2185</p>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-white" />
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{t.contact.location}</h3>
-                <p className="text-muted-foreground">Chaingmai, Thailand</p>
+                <h3 className="font-medium text-base mb-2">{t.contact.location}</h3>
+                <p className="text-muted-foreground text-sm">Chaingmai, Thailand</p>
               </Card>
             </div>
 
-            <div className="flex justify-center space-x-6">
-              <Button variant="outline" size="lg" asChild className="group">
+            {/* Contact Form */}
+            <Card className="p-8 mb-12 border border-border/50 bg-background/50 backdrop-blur-sm">
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-sm font-medium">{t.contact.form.name}</Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder={t.contact.form.nameLabel}
+                      className="border-border/50 bg-background/50 backdrop-blur-sm"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-medium">{t.contact.email}</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder={t.contact.form.emailLabel}
+                      className="border-border/50 bg-background/50 backdrop-blur-sm"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-sm font-medium">{t.contact.form.subject}</Label>
+                  <Input
+                    id="subject"
+                    type="text"
+                    placeholder={t.contact.form.subjectLabel}
+                    className="border-border/50 bg-background/50 backdrop-blur-sm"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-sm font-medium">{t.contact.form.message}</Label>
+                  <Textarea
+                    id="message"
+                    rows={5}
+                    placeholder={t.contact.form.messageLabel}
+                    className="resize-none border-border/50 bg-background/50 backdrop-blur-sm"
+                  />
+                </div>
+                <Button type="submit" size="lg" className="w-full group bg-primary hover:bg-primary/90 shadow-sm hover:shadow-md transition-all duration-200">
+                  <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  {t.contact.form.send}
+                </Button>
+              </form>
+            </Card>
+
+            <div className="flex justify-center space-x-4">
+              <Button variant="outline" size="lg" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200">
                 <Link href="https://github.com/bestpatcharapon" target="_blank">
                   <Github className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   GitHub
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="group">
+              <Button variant="outline" size="lg" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200">
                 <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
                   <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   LinkedIn
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="group">
+              <Button variant="outline" size="lg" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200">
                 <Link href="https://twitter.com" target="_blank">
                   <Twitter className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Twitter
@@ -837,17 +929,17 @@ export default function Portfolio() {
       )}
 
       {/* Footer */}
-      <footer className="border-t bg-muted/30 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-6">
-            <div className="font-bold text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent mb-2">
+            <div className="font-bold text-2xl text-foreground mb-2">
               Patcharapon Yoriya
             </div>
-            <p className="text-muted-foreground">Software Engineer</p>
+            <p className="text-muted-foreground text-sm">Software Engineer</p>
           </div>
-          <div className="border-t pt-6">
-            <p className="text-muted-foreground">
-              &copy; 2024 Patcharapon Yoriya. Made with ❤️ using Next.js & Tailwind CSS
+          <div className="border-t border-border/50 pt-6">
+            <p className="text-muted-foreground text-sm">
+              &copy; 2025 Patcharapon Yoriya. Made with ❤️ using Next.js & Tailwind CSS
             </p>
           </div>
         </div>
