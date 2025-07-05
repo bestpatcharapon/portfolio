@@ -25,11 +25,9 @@ import {
   Linkedin,
   Twitter,
   Users,
-  Award,
   Zap,
   Heart,
   CheckCircle,
-  TrendingUp,
   Briefcase,
 } from "lucide-react"
 import Link from "next/link"
@@ -51,12 +49,7 @@ const translations = {
       hireMeBtn: "จ้างฉัน",
       downloadCV: "ดาวน์โหลด CV",
     },
-    stats: {
-      projects: "โปรเจค",
-      experience: "ปีประสบการณ์",
-      clients: "ลูกค้า",
-      awards: "รางวัล",
-    },
+
 
     featured: {
       title: "โปรเจคเด่น",
@@ -69,6 +62,24 @@ const translations = {
       subtitle: "ความหลงใหลในการเขียนโค้ด",
       description: "ฉันเป็นนักพัฒนาซอฟต์แวร์ที่มีประสบการณ์ 3+ ปี ชอบเรียนรู้เทคโนโลยีใหม่ๆ และสร้างสรรค์โซลูชันที่แก้ปัญหาได้จริง",
       learnMore: "เรียนรู้เพิ่มเติม",
+      features: {
+        cleanCode: {
+          title: "โค้ดที่สะอาด",
+          description: "เขียนโค้ดที่บำรุงรักษาและขยายได้ง่าย"
+        },
+        fastPerformance: {
+          title: "ประสิทธิภาพสูง",
+          description: "ปรับแต่งให้เร็วและมีประสิทธิภาพ"
+        },
+        qualityAssured: {
+          title: "รับประกันคุณภาพ",
+          description: "ทดสอบอย่างละเอียดและเชื่อถือได้"
+        },
+        userFocused: {
+          title: "เน้นผู้ใช้",
+          description: "ออกแบบโดยคำนึงถึงผู้ใช้เป็นหลัก"
+        }
+      }
     },
     about: {
       title: "เกี่ยวกับฉัน",
@@ -129,12 +140,6 @@ const translations = {
       hireMeBtn: "Hire Me",
       downloadCV: "Download CV",
     },
-    stats: {
-      projects: "Projects",
-      experience: "Years Experience",
-      clients: "Happy Clients",
-      awards: "Awards",
-    },
 
     featured: {
       title: "Featured Projects",
@@ -148,6 +153,24 @@ const translations = {
       description:
         "I'm a software developer with 3+ years of experience who loves learning new technologies and creating solutions that solve real problems",
       learnMore: "Learn More",
+      features: {
+        cleanCode: {
+          title: "Clean Code",
+          description: "Writing maintainable and scalable code"
+        },
+        fastPerformance: {
+          title: "Fast Performance",
+          description: "Optimized for speed and efficiency"
+        },
+        qualityAssured: {
+          title: "Quality Assured",
+          description: "Thoroughly tested and reliable"
+        },
+        userFocused: {
+          title: "User Focused",
+          description: "Designed with users in mind"
+        }
+      }
     },
     about: {
       title: "About Me",
@@ -390,21 +413,21 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       {activeSection === "home" && (
-        <div className="space-y-20">
+        <div className="space-y-2">
           {/* Main Hero */}
-          <section className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <section className="pt-20 pb-6 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             {/* Subtle Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/2 rounded-full blur-3xl" />
 
             <div className="max-w-6xl mx-auto relative z-10">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
                 {/* Text Content */}
                 <div className="text-center lg:text-left">
                   <div className="animate-fade-in-up">
                     {/* Profile Picture - Mobile Only */}
-                    <div className="lg:hidden mb-12">
+                    <div className="lg:hidden mb-8">
                       <div className="w-28 h-28 mx-auto mb-6 relative">
                         <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 rounded-full flex items-center justify-center border border-border/50 shadow-sm hover:shadow-md transition-all duration-300">
                           {/* Placeholder - Replace with actual profile image */}
@@ -418,34 +441,34 @@ export default function Portfolio() {
                             className="rounded-full object-cover"
                           />
                           */}
-                        </div>
+            </div>
                       </div>
-                    </div>
+            </div>
 
-                    <p className="text-lg text-muted-foreground mb-4 animate-fade-in-up delay-100">{t.hero.greeting}</p>
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200">
-                      {t.hero.name}
-                    </h1>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6 text-muted-foreground animate-fade-in-up delay-300">
-                      {t.hero.title}
-                    </h2>
-                    <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up delay-400">
-                      {t.hero.description}
-                    </p>
+                <p className="text-lg text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
+                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200">
+                  {t.hero.name}
+                </h1>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2 text-muted-foreground animate-fade-in-up delay-300">
+                  {t.hero.title}
+                </h2>
+                    <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up delay-400">
+                  {t.hero.description}
+                </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start animate-fade-in-up delay-500">
                       <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border-0">
-                        {t.hero.cta}
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                    {t.hero.cta}
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
                       <Button size="lg" variant="outline" className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:bg-muted hover:border-border px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" asChild>
                         <a href="/cv.pdf" download target="_blank">
-                          <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                          {t.hero.downloadCV}
+                    <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                    {t.hero.downloadCV}
                         </a>
-                      </Button>
-                    </div>
-                  </div>
+                  </Button>
                 </div>
+              </div>
+            </div>
 
                 {/* Image/GIF Section */}
                 <div className="flex justify-center lg:justify-end">
@@ -475,62 +498,28 @@ export default function Portfolio() {
                               <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
                                 {language === "th" ? "ตัวอย่าง GIF - เปลี่ยนเป็นของคุณได้" : "Demo GIF - Replace with yours"}
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Stats Section */}
-          <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center group">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
-                    <Briefcase className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">20+</div>
-                  <div className="text-muted-foreground text-sm">{t.stats.projects}</div>
-                </div>
-                <div className="text-center group">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
-                    <TrendingUp className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">3+</div>
-                  <div className="text-muted-foreground text-sm">{t.stats.experience}</div>
-                </div>
-                <div className="text-center group">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">15+</div>
-                  <div className="text-muted-foreground text-sm">{t.stats.clients}</div>
-                </div>
-                <div className="text-center group">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">5</div>
-                  <div className="text-muted-foreground text-sm">{t.stats.awards}</div>
-                </div>
-              </div>
-            </div>
-          </section>
+
 
           {/* Quick About Section */}
-          <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <section className="py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
-                <div className="space-y-6">
+              <div className="grid lg:grid-cols-2 gap-6 items-center">
+                                  <div className="space-y-3">
                   <div>
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.quickAbout.title}</h2>
-                    <p className="text-xl text-primary font-medium mb-6">{t.quickAbout.subtitle}</p>
-                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-6" />
+                      <h2 className="text-3xl lg:text-4xl font-bold mb-1">{t.quickAbout.title}</h2>
+                      <p className="text-xl text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
+                      <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
                   </div>
                   <p className="text-lg text-muted-foreground leading-relaxed">{t.quickAbout.description}</p>
 
@@ -549,26 +538,26 @@ export default function Portfolio() {
                 </div>
 
                 <div className="relative">
-                  <div className="grid grid-cols-2 gap-4">
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="grid grid-cols-2 gap-6">
+                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <Code className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">Clean Code</h3>
-                      <p className="text-sm text-muted-foreground">Writing maintainable and scalable code</p>
+                      <h3 className="font-semibold mb-2">{t.quickAbout.features.cleanCode.title}</h3>
+                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.cleanCode.description}</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 mt-8">
+                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <Zap className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">Fast Performance</h3>
-                      <p className="text-sm text-muted-foreground">Optimized for speed and efficiency</p>
+                      <h3 className="font-semibold mb-2">{t.quickAbout.features.fastPerformance.title}</h3>
+                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.fastPerformance.description}</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 -mt-4">
+                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <CheckCircle className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">Quality Assured</h3>
-                      <p className="text-sm text-muted-foreground">Thoroughly tested and reliable</p>
+                      <h3 className="font-semibold mb-2">{t.quickAbout.features.qualityAssured.title}</h3>
+                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.qualityAssured.description}</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 mt-4">
+                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <Heart className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">User Focused</h3>
-                      <p className="text-sm text-muted-foreground">Designed with users in mind</p>
+                      <h3 className="font-semibold mb-2">{t.quickAbout.features.userFocused.title}</h3>
+                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.userFocused.description}</p>
                     </Card>
                   </div>
                 </div>
@@ -579,11 +568,11 @@ export default function Portfolio() {
 
 
           {/* Featured Projects */}
-          <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <section className="py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="flex justify-between items-center mb-16">
+              <div className="flex justify-between items-center mb-4">
                 <div>
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.featured.title}</h2>
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-1">{t.featured.title}</h2>
                   <p className="text-lg text-muted-foreground">{t.featured.subtitle}</p>
                 </div>
                 <Button variant="outline" onClick={() => setActiveSection("projects")} className="group">
@@ -652,14 +641,14 @@ export default function Portfolio() {
 
       {/* About Section */}
       {activeSection === "about" && (
-        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.about.title}</h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">{t.about.description}</p>
 
@@ -685,14 +674,14 @@ export default function Portfolio() {
                       <Card className="p-4 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                         <div className="w-8 h-8 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
                           <Code className="w-4 h-4 text-primary" />
-                        </div>
+                      </div>
                         <h4 className="font-medium text-sm mb-3">{skill.name}</h4>
                         <div className="w-full bg-muted/50 rounded-full h-1">
-                          <div
+                        <div
                             className="bg-primary h-1 rounded-full transition-all duration-1000 ease-out"
-                            style={{ width: `${skill.level}%` }}
-                          />
-                        </div>
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
                       </Card>
                     </div>
                   ))}
@@ -705,15 +694,15 @@ export default function Portfolio() {
 
       {/* Experience Section */}
       {activeSection === "about" && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.experience.title}</h2>
               <p className="text-lg text-muted-foreground mb-6">{t.experience.subtitle}</p>
               <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {experiences.map((exp, index) => (
                 <Card key={index} className="p-6 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                   <div className="flex items-start gap-4">
@@ -757,9 +746,9 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       {activeSection === "projects" && (
-        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.projects.title}</h2>
               <p className="text-lg text-muted-foreground mb-6">{t.projects.subtitle}</p>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
@@ -821,16 +810,16 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       {activeSection === "contact" && (
-        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.contact.title}</h2>
               <p className="text-xl text-primary font-medium mb-4">{t.contact.subtitle}</p>
               <p className="text-lg text-muted-foreground mb-6">{t.contact.description}</p>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
               <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-6 h-6 text-primary" />
@@ -857,7 +846,7 @@ export default function Portfolio() {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-8 mb-12 border border-border/50 bg-background/50 backdrop-blur-sm">
+            <Card className="p-8 mb-10 border border-border/50 bg-background/50 backdrop-blur-sm">
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -929,7 +918,7 @@ export default function Portfolio() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-6">
             <div className="font-bold text-2xl text-foreground mb-2">
