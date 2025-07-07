@@ -421,8 +421,8 @@ export default function Portfolio() {
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/2 rounded-full blur-3xl" />
 
-            <div className="max-w-6xl mx-auto relative z-10">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="max-w-7xl mx-auto relative z-10">
+              <div className="grid lg:grid-cols-[1fr_2fr] gap-8 items-center">
                 {/* Text Content */}
                 <div className="text-center lg:text-left">
                   <div className="animate-fade-in-up">
@@ -470,37 +470,34 @@ export default function Portfolio() {
               </div>
             </div>
 
-                {/* Image/GIF Section */}
-                <div className="flex justify-center lg:justify-end">
-                  <div className="relative">
-                    <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl h-80 md:h-96 lg:h-[500px] relative">
+                {/* Video Section - Wider */}
+                <div className="flex justify-center lg:justify-end w-full">
+                  <div className="relative w-full">
+                    <div className="w-full h-[280px] md:h-[400px] lg:h-[500px] relative">
                       {/* Decorative Elements */}
                       <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 animate-pulse" />
                       <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full opacity-20 animate-pulse delay-1000" />
                       <div className="absolute top-10 right-10 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg opacity-15 animate-pulse delay-500 rotate-12" />
                       
-                      {/* Main Image/GIF Container */}
+                      {/* Main Video Container - Wide Aspect Ratio */}
                       <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] animate-fade-in-up delay-600 shadow-lg hover:shadow-2xl overflow-hidden">
-                        {/* Demo GIF - Replace with your own */}
+                        {/* Your Custom Video - Wide Size */}
                         <div className="relative w-full h-full">
-                          <Image
-                            src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif"
-                            alt="Demo Animation - Coding"
-                            width={640}
-                            height={500}
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             className="rounded-2xl object-cover w-full h-full"
-                            priority
-                            unoptimized
-                          />
-                          {/* Overlay with instructions */}
-                          <div className="absolute inset-0 bg-black/20 rounded-2xl flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <div className="text-center bg-white/90 dark:bg-black/90 p-4 rounded-lg">
-                              <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                                {language === "th" ? "ตัวอย่าง GIF - เปลี่ยนเป็นของคุณได้" : "Demo GIF - Replace with yours"}
-                              </p>
-                  </div>
-                </div>
-                  </div>
+                          >
+                            <source src="/Port.mp4" type="video/mp4" />
+                            {/* Fallback for older browsers */}
+                            <img                            
+                              alt="Video fallback"
+                              className="rounded-2xl object-cover w-full h-full"
+                            />
+                          </video>
+                        </div>
                 </div>
                   </div>
                 </div>
