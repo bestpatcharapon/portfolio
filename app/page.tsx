@@ -34,6 +34,10 @@ import Link from "next/link"
 
 const translations = {
   th: {
+    brand: {
+      logo: "เบสท์",
+      title: "แฟ้มสะสมผลงาน",
+    },
     nav: {
       home: "หน้าหลัก",
       about: "เกี่ยวกับ",
@@ -124,6 +128,10 @@ const translations = {
     },
   },
   en: {
+    brand: {
+      logo: "Best",
+      title: "Portfolio",
+    },
     nav: {
       home: "Home",
       about: "About",
@@ -366,10 +374,17 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background transition-colors duration-500">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b z-50 transition-all duration-300">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto pl-2 pr-4 sm:pl-4 sm:pr-6 lg:pl-6 lg:pr-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              PY
+            <div className="flex items-center space-x-2">
+              <div className="px-2 py-1 bg-gradient-to-r from-primary to-primary/60 rounded-lg shadow-md">
+                <span className="font-bold text-sm text-white">
+                  {t.brand.logo}
+                </span>
+              </div>
+              <div className="font-bold text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                {t.brand.title}
+              </div>
             </div>
 
             <div className="hidden md:flex space-x-8">
