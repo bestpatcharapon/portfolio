@@ -46,7 +46,8 @@ const translations = {
     },
     hero: {
       greeting: "สวัสดี, ฉัน",
-      name: "พัชรพล โยริยะ",
+      name: "พัชรพล",
+      surname: "โยริยะ",
       title: "วิศวกรซอฟต์แวร์",
       description: "นักพัฒนาซอฟต์แวร์ที่หลงใหลในการสร้างสรรค์เทคโนโลยีที่ทำให้ชีวิตง่ายขึ้น สร้างประสบการณ์ดิจิทัลที่น่าประทับใจ",
       cta: "ดูผลงาน",
@@ -140,7 +141,8 @@ const translations = {
     },
     hero: {
       greeting: "Hi, I'm",
-      name: "Patcharapon Yoriya",
+      name: "Patcharapon",
+      surname: "Yoriya",
       title: "Software Engineer",
       description:
         "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
@@ -376,16 +378,19 @@ export default function Portfolio() {
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto pl-2 pr-4 sm:pl-4 sm:pr-6 lg:pl-6 lg:pr-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <div className="px-2 py-1 bg-gradient-to-r from-primary to-primary/60 rounded-lg shadow-md">
+            <button 
+              onClick={() => setActiveSection("home")}
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-200 cursor-pointer group"
+            >
+              <div className="px-2 py-1 bg-gradient-to-r from-primary to-primary/60 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-200">
                 <span className="font-bold text-sm text-white">
                   {t.brand.logo}
                 </span>
               </div>
-              <div className="font-bold text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <div className="font-display font-bold text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent tracking-tight group-hover:from-primary/80 group-hover:to-primary/80 transition-all duration-200">
                 {t.brand.title}
               </div>
-            </div>
+            </button>
 
             <div className="hidden md:flex space-x-8">
               {Object.entries(t.nav).map(([key, value]) => (
@@ -461,10 +466,13 @@ export default function Portfolio() {
             </div>
 
                 <p className="text-lg text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200">
+                    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold mb-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight">
                   {t.hero.name}
                 </h1>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2 text-muted-foreground animate-fade-in-up delay-300">
+                    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-250 tracking-tight">
+                  {t.hero.surname}
+                </h1>
+                    <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
                   {t.hero.title}
                 </h2>
                     <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up delay-400">
@@ -529,7 +537,7 @@ export default function Portfolio() {
               <div className="grid lg:grid-cols-2 gap-6 items-center">
                                   <div className="space-y-3">
                   <div>
-                      <h2 className="text-3xl lg:text-4xl font-bold mb-1">{t.quickAbout.title}</h2>
+                      <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.quickAbout.title}</h2>
                       <p className="text-xl text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
                       <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
                   </div>
@@ -553,22 +561,22 @@ export default function Portfolio() {
                   <div className="grid grid-cols-2 gap-6">
                     <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <Code className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">{t.quickAbout.features.cleanCode.title}</h3>
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.cleanCode.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.cleanCode.description}</p>
                     </Card>
                     <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <Zap className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">{t.quickAbout.features.fastPerformance.title}</h3>
+                                              <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.fastPerformance.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.fastPerformance.description}</p>
                     </Card>
                     <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <CheckCircle className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">{t.quickAbout.features.qualityAssured.title}</h3>
+                                              <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.qualityAssured.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.qualityAssured.description}</p>
                     </Card>
                     <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                       <Heart className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">{t.quickAbout.features.userFocused.title}</h3>
+                                              <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.userFocused.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.userFocused.description}</p>
                     </Card>
                   </div>
@@ -584,7 +592,7 @@ export default function Portfolio() {
             <div className="max-w-6xl mx-auto">
               <div className="flex justify-between items-center mb-4">
                 <div>
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-1">{t.featured.title}</h2>
+                  <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
                   <p className="text-lg text-muted-foreground">{t.featured.subtitle}</p>
                 </div>
                 <Button variant="outline" onClick={() => setActiveSection("projects")} className="group">
@@ -605,7 +613,7 @@ export default function Portfolio() {
                         <div className="p-2 rounded-lg bg-primary/10 text-primary">
                           {project.icon}
                         </div>
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                        <CardTitle className="font-display text-xl group-hover:text-primary transition-colors tracking-tight">
                           {language === "th" ? project.titleTh : project.title}
                         </CardTitle>
                       </div>
@@ -656,7 +664,7 @@ export default function Portfolio() {
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.about.title}</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.about.title}</h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
@@ -709,7 +717,7 @@ export default function Portfolio() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.experience.title}</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.experience.title}</h2>
               <p className="text-lg text-muted-foreground mb-6">{t.experience.subtitle}</p>
               <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
             </div>
@@ -761,7 +769,7 @@ export default function Portfolio() {
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.projects.title}</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.projects.title}</h2>
               <p className="text-lg text-muted-foreground mb-6">{t.projects.subtitle}</p>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
@@ -778,7 +786,7 @@ export default function Portfolio() {
                       <div className="p-2 rounded-lg bg-primary/10 text-primary">
                         {project.icon}
                       </div>
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                      <CardTitle className="font-display text-xl group-hover:text-primary transition-colors tracking-tight">
                         {language === "th" ? project.titleTh : project.title}
                       </CardTitle>
                     </div>
@@ -825,7 +833,7 @@ export default function Portfolio() {
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.contact.title}</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.contact.title}</h2>
               <p className="text-xl text-primary font-medium mb-4">{t.contact.subtitle}</p>
               <p className="text-lg text-muted-foreground mb-6">{t.contact.description}</p>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
@@ -836,7 +844,7 @@ export default function Portfolio() {
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-medium text-base mb-2">{t.contact.email}</h3>
+                <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.email}</h3>
                 <p className="text-muted-foreground text-sm">patcharaponyo65@gmail.com</p>
               </Card>
 
@@ -844,7 +852,7 @@ export default function Portfolio() {
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-medium text-base mb-2">{t.contact.phone}</h3>
+                <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.phone}</h3>
                 <p className="text-muted-foreground text-sm">+66 080 979 2185</p>
               </Card>
 
@@ -852,7 +860,7 @@ export default function Portfolio() {
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-medium text-base mb-2">{t.contact.location}</h3>
+                <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.location}</h3>
                 <p className="text-muted-foreground text-sm">Chaingmai, Thailand</p>
               </Card>
             </div>
@@ -933,7 +941,7 @@ export default function Portfolio() {
       <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-6">
-            <div className="font-bold text-2xl text-foreground mb-2">
+            <div className="font-display font-bold text-2xl text-foreground mb-2 tracking-tight">
               Patcharapon Yoriya
             </div>
             <p className="text-muted-foreground text-sm">Software Engineer</p>
