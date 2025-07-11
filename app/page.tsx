@@ -141,9 +141,9 @@ const translations = {
     },
     hero: {
       greeting: "Hi, I'm",
-      name: "Patcharapon",
-      surname: "Yoriya",
-      title: "Software Engineer",
+      name: "",
+      surname: "",
+      title: "",
       description:
         "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
       cta: "View My Work",
@@ -185,7 +185,7 @@ const translations = {
     about: {
       title: "About Me",
       description:
-        "I'm a software engineer with experience in developing web applications and software systems. I enjoy learning new technologies and solving complex problems, committed to creating quality and user-friendly solutions.",
+        "I'm a developer with experience in developing web applications and software systems. I enjoy learning new technologies and solving complex problems, committed to creating quality and user-friendly solutions.",
       skills: "Skills",
       experience: "Experience",
       years: "3+ Years",
@@ -942,13 +942,13 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-6">
             <div className="font-display font-bold text-2xl text-foreground mb-2 tracking-tight">
-              Patcharapon Yoriya
+              
             </div>
-            <p className="text-muted-foreground text-sm">Software Engineer</p>
+            <p className="text-muted-foreground text-sm"></p>
           </div>
           <div className="border-t border-border/50 pt-6">
             <p className="text-muted-foreground text-sm">
-              &copy; 2025 Patcharapon Yoriya. Made with ❤️ using Next.js & Tailwind CSS
+              &copy; 2025. Made with ❤️ using Next.js & Tailwind CSS
             </p>
           </div>
         </div>
