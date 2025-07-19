@@ -11,9 +11,10 @@ const config: Config = {
   theme: {
   	extend: {
   		fontFamily: {
-  			'inter': ['Inter', 'Sarabun', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-  			'display': ['Inter', 'Sarabun', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-  			'sans': ['Inter', 'Sarabun', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  			'inter': ['SF Pro Display', 'Inter', 'Sarabun', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  			'display': ['SF Pro Display', 'Inter', 'Sarabun', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  			'sans': ['SF Pro Display', 'Inter', 'Sarabun', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  			'sf': ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
   		},
   		letterSpacing: {
   			'tighter': '-0.05em',

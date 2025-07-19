@@ -225,16 +225,16 @@ const translations = {
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    titleTh: "แพลตฟอร์มอีคอมเมิร์ซ",
+    title: "Human Detection System with Edge Computing",
+    titleTh: "ระบบตรวจจับมนุษย์ด้วย Edge Computing",
     description:
-      "A full-stack e-commerce solution with React, Node.js, and MongoDB featuring payment integration and admin dashboard",
-    descriptionTh: "แพลตฟอร์มอีคอมเมิร์ซแบบครบวงจรด้วย React, Node.js และ MongoDB พร้อมระบบชำระเงินและแดชบอร์ดแอดมิน",
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    icon: <Globe className="w-6 h-6" />,
-    gradient: "from-blue-500 to-purple-600",
+      "A comprehensive human detection system using ESP32 and edge computing technology with real-time monitoring dashboard, analytics, and email notifications. Features include detection trends, performance metrics, and system status monitoring.",
+    descriptionTh: "ระบบตรวจจับมนุษย์แบบครบวงจรโดยใช้ ESP32 และเทคโนโลยี Edge Computing พร้อมแดชบอร์ดติดตามแบบเรียลไทม์ การวิเคราะห์ข้อมูล และการแจ้งเตือนทางอีเมล รวมถึงแนวโน้มการตรวจจับ ตัวชี้วัดประสิทธิภาพ และการติดตามสถานะระบบ",
+    tech: ["ESP32", "Python", "React", "Node.js", "MongoDB", "Chart.js", "Email API"],
+    github: "https://github.com/bestpatcharapon/Project",
+    demo: "https://web-xdtm.onrender.com/",
+    icon: <Users className="w-6 h-6" />,
+    gradient: "from-green-500 to-blue-600",
   },
   {
     title: "Task Management App",
@@ -377,7 +377,7 @@ export default function Portfolio() {
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className="hidden sm:flex border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-medium"
+                className="hidden sm:flex border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium"
               >
                 {language === "th" ? "EN" : "TH"}
               </Button>
@@ -385,7 +385,7 @@ export default function Portfolio() {
                 variant="outline"
                 size="sm"
                 onClick={toggleTheme}
-                className="border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-medium"
+                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium"
               >
                 {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </Button>
@@ -416,22 +416,22 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <p className="text-lg text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
-                  <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight">
+                  <p className="text-base text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
+                  <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight">
                     {t.hero.name}
                   </h1>
-                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
+                  <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-medium mb-2 text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
                     {t.hero.title}
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
+                  <p className="text-base text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
                     {t.hero.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-in-up delay-500">
-                    <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-white text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium">
+                    <Button size="default" onClick={() => setActiveSection("projects")} className="group bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium">
                       {t.hero.cta}
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                    <Button size="lg" variant="outline" className="group border-2 border-gray-300 bg-black text-white hover:bg-gray-900 hover:border-gray-400 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium" asChild>
+                    <Button size="default" variant="outline" className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium" asChild>
                       <a href="/cv.pdf" download target="_blank">
                         <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                         {t.hero.downloadCV}
@@ -440,30 +440,30 @@ export default function Portfolio() {
                   </div>
 
                   {/* Social Media Links */}
-                  <div className="mt-8 animate-fade-in-up delay-600">
-                    <p className="text-sm text-muted-foreground mb-4">{t.hero.socialLinks}</p>
-                    <div className="flex justify-center gap-3">
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                  <div className="mt-6 animate-fade-in-up delay-600">
+                    <p className="text-xs text-muted-foreground mb-3">{t.hero.socialLinks}</p>
+                    <div className="flex justify-center gap-2">
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
-                          <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          <Linkedin className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
                           LinkedIn
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://github.com/bestpatcharapon" target="_blank">
-                          <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          <Github className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
                           GitHub
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.youtube.com/@bestpj6139" target="_blank">
-                          <Youtube className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          <Youtube className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
                           YouTube
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.instagram.com/_imbstt.p/" target="_blank">
-                          <Instagram className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          <Instagram className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
                           Instagram
                         </Link>
                       </Button>
@@ -480,23 +480,23 @@ export default function Portfolio() {
               <div className="grid lg:grid-cols-2 gap-6 items-center">
                 <div className="space-y-3">
                   <div>
-                    <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.quickAbout.title}</h2>
-                    <p className="text-xl text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
-                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
+                    <h2 className="font-display text-2xl lg:text-3xl font-bold mb-1 tracking-tight">{t.quickAbout.title}</h2>
+                    <p className="text-lg text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
+                    <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
                   </div>
-                  <p className="text-lg text-muted-foreground leading-relaxed">{t.quickAbout.description}</p>
+                  <p className="text-base text-muted-foreground leading-relaxed">{t.quickAbout.description}</p>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2">
                     {["React", "Next.js", "TypeScript", "Node.js", "Python"].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="px-3 py-1 text-sm">
+                      <Badge key={tech} variant="secondary" className="px-2 py-1 text-xs">
                         {tech}
                       </Badge>
                     ))}
                   </div>
 
-                  <Button onClick={() => setActiveSection("about")} className="group">
+                  <Button onClick={() => setActiveSection("about")} className="group text-sm">
                     {t.quickAbout.learnMore}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
 
@@ -533,12 +533,12 @@ export default function Portfolio() {
             <div className="max-w-6xl mx-auto">
               <div className="flex justify-between items-center mb-4">
                 <div>
-                  <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
-                  <p className="text-lg text-muted-foreground">{t.featured.subtitle}</p>
+                  <h2 className="font-display text-2xl lg:text-3xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
+                  <p className="text-base text-muted-foreground">{t.featured.subtitle}</p>
                 </div>
-                <Button variant="outline" onClick={() => setActiveSection("projects")} className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-medium">
+                <Button variant="outline" onClick={() => setActiveSection("projects")} className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium text-sm">
                   {t.featured.viewAll}
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
 
@@ -549,6 +549,23 @@ export default function Portfolio() {
                     className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg overflow-hidden"
                   >
                     <div className="h-1 bg-primary/50" />
+                    {/* Project Image */}
+                    {index === 0 && (
+                      <div className="relative h-64 bg-gradient-to-br from-green-500/10 to-blue-600/10 overflow-hidden">
+                        <Image
+                          src="/human-detection-dashboard.png"
+                          alt="Human Detection System Dashboard"
+                          fill
+                          style={{ objectFit: "cover" }}
+                          className="rounded-t-lg"
+                          priority
+                        />
+                        <div className="absolute top-3 right-3 flex gap-2">
+                          <Badge variant="outline" className="text-xs bg-green-500/20 text-green-400 border-green-500/30 backdrop-blur-sm">ESP32</Badge>
+                          <Badge variant="outline" className="text-xs bg-blue-500/20 text-blue-400 border-blue-500/30 backdrop-blur-sm">Edge Computing</Badge>
+                        </div>
+                      </div>
+                    )}
                     <CardHeader className="pb-4">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -576,13 +593,13 @@ export default function Portfolio() {
                         {project.tech.length > 3 && <Badge variant="outline" className="text-xs">+{project.tech.length - 3}</Badge>}
                       </div>
                       <div className="flex gap-3">
-                        <Button variant="default" size="sm" asChild className="flex-1 group/btn">
+                        <Button variant="default" size="sm" asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90">
                           <Link href={project.demo} target="_blank">
                             <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                             {t.projects.viewProject}
                           </Link>
                         </Button>
-                        <Button variant="outline" size="sm" asChild className="flex-1 group/btn">
+                        <Button variant="outline" size="sm" asChild className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary">
                           <Link href={project.github} target="_blank">
                             <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                             {t.projects.viewCode}
@@ -603,8 +620,8 @@ export default function Portfolio() {
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.about.title}</h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
+              <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.about.title}</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -643,9 +660,9 @@ export default function Portfolio() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.experience.title}</h2>
-              <p className="text-lg text-muted-foreground mb-6">{t.experience.subtitle}</p>
-              <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+              <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.experience.title}</h2>
+              <p className="text-base text-muted-foreground mb-6">{t.experience.subtitle}</p>
+              <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
             </div>
 
             <div className="space-y-5">
@@ -673,9 +690,9 @@ export default function Portfolio() {
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.projects.title}</h2>
-              <p className="text-lg text-muted-foreground mb-6">{t.projects.subtitle}</p>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
+              <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.projects.title}</h2>
+              <p className="text-base text-muted-foreground mb-6">{t.projects.subtitle}</p>
+              <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -685,6 +702,23 @@ export default function Portfolio() {
                   className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm overflow-hidden"
                 >
                   <div className="h-1 bg-primary/50" />
+                  {/* Project Image */}
+                  {index === 0 && (
+                    <div className="relative h-64 bg-gradient-to-br from-green-500/10 to-blue-600/10 overflow-hidden">
+                      <Image
+                        src="/human-detection-dashboard.png"
+                        alt="Human Detection System Dashboard"
+                        fill
+                        style={{ objectFit: "cover" }}
+                        className="rounded-t-lg"
+                        priority
+                      />
+                      <div className="absolute top-3 right-3 flex gap-2">
+                        <Badge variant="outline" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">ESP32</Badge>
+                        <Badge variant="outline" className="text-xs bg-blue-500/20 text-blue-400 border-blue-500/30">Edge Computing</Badge>
+                      </div>
+                    </div>
+                  )}
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -711,13 +745,13 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <Button variant="default" size="sm" asChild className="flex-1 group/btn">
+                      <Button variant="default" size="sm" asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90">
                         <Link href={project.demo} target="_blank">
                           <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                           {t.projects.viewProject}
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="flex-1 group/btn">
+                      <Button variant="outline" size="sm" asChild className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary">
                         <Link href={project.github} target="_blank">
                           <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                           {t.projects.viewCode}
@@ -737,9 +771,9 @@ export default function Portfolio() {
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.contact.title}</h2>
-              <p className="text-lg text-muted-foreground mb-6">{t.contact.subtitle}</p>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
+              <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.contact.title}</h2>
+              <p className="text-base text-muted-foreground mb-6">{t.contact.subtitle}</p>
+              <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
             <p className="text-center text-muted-foreground mb-10 leading-relaxed">{t.contact.description}</p>
@@ -812,7 +846,7 @@ export default function Portfolio() {
                     className="resize-none border-border/50 bg-background/50 backdrop-blur-sm"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full group bg-primary hover:bg-primary/90 shadow-sm hover:shadow-md transition-all duration-200">
+                <Button type="submit" size="lg" className="w-full group bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md transition-all duration-200">
                   <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   {t.contact.form.send}
                 </Button>
