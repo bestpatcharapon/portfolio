@@ -31,6 +31,10 @@ import {
   Briefcase,
   Youtube,
   Instagram,
+  Monitor,
+  Server,
+  Palette,
+  Music,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -396,13 +400,13 @@ export default function Portfolio() {
 
       {/* Main Content */}
       {activeSection === "home" && (
-        <div className="space-y-2">
+        <div className="space-y-0">
           {/* Main Hero */}
           <section className="pt-20 pb-6 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            {/* Subtle Background */}
+            {/* Minimal Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/2 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-muted/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-muted/5 rounded-full blur-3xl" />
 
             <div className="max-w-4xl mx-auto relative z-10">
               <div className="text-center">
@@ -410,7 +414,7 @@ export default function Portfolio() {
                   {/* Profile Picture - Mobile Only */}
                   <div className="lg:hidden mb-8">
                     <div className="w-28 h-28 mx-auto mb-6 relative">
-                      <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 rounded-full flex items-center justify-center border border-border/50 shadow-sm hover:shadow-md transition-all duration-300">
+                      <div className="w-full h-full bg-gradient-to-br from-muted/30 to-muted/20 rounded-full flex items-center justify-center border border-border/30 shadow-sm hover:shadow-md transition-all duration-300">
                         <div className="text-3xl">👨‍💻</div>
                       </div>
                     </div>
@@ -474,9 +478,16 @@ export default function Portfolio() {
             </div>
           </section>
 
+          {/* Section Divider */}
+          <div className="relative h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-6 lg:mx-8">
+          </div>
+
           {/* Quick About Section */}
-          <section className="py-6 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
+          <section className="py-12 px-4 sm:px-6 lg:px-8 relative">
+            {/* Minimal Background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background-secondary/20 to-background" />
+            
+            <div className="max-w-6xl mx-auto relative z-10">
               <div className="grid lg:grid-cols-2 gap-6 items-center">
                 <div className="space-y-3">
                   <div>
@@ -487,7 +498,7 @@ export default function Portfolio() {
                   <p className="text-base text-muted-foreground leading-relaxed">{t.quickAbout.description}</p>
 
                   <div className="flex flex-wrap gap-2">
-                    {["React", "Next.js", "TypeScript", "Node.js", "Python"].map((tech) => (
+                    {["React", "Next.js", "JavaScript", "Node.js", "Python"].map((tech) => (
                       <Badge key={tech} variant="secondary" className="px-2 py-1 text-xs">
                         {tech}
                       </Badge>
@@ -503,24 +514,24 @@ export default function Portfolio() {
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-6">
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
-                      <Code className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.cleanCode.title}</h3>
-                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.cleanCode.description}</p>
+                      <Monitor className="w-8 h-8 text-primary mb-3" />
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">Frontend</h3>
+                      <p className="text-sm text-muted-foreground">React, Next.js, JavaScript</p>
                     </Card>
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
-                      <Zap className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.fastPerformance.title}</h3>
-                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.fastPerformance.description}</p>
+                      <Server className="w-8 h-8 text-primary mb-3" />
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">Backend</h3>
+                      <p className="text-sm text-muted-foreground">Node.js, Python, APIs</p>
                     </Card>
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
-                      <CheckCircle className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.qualityAssured.title}</h3>
-                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.qualityAssured.description}</p>
+                      <Palette className="w-8 h-8 text-primary mb-3" />
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">Design</h3>
+                      <p className="text-sm text-muted-foreground">Figma, Canva</p>
                     </Card>
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
-                      <Heart className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.userFocused.title}</h3>
-                      <p className="text-sm text-muted-foreground">{t.quickAbout.features.userFocused.description}</p>
+                      <Music className="w-8 h-8 text-primary mb-3" />
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">Etc.</h3>
+                      <p className="text-sm text-muted-foreground">I'm REALLY into music</p>
                     </Card>
                   </div>
                 </div>
@@ -528,9 +539,16 @@ export default function Portfolio() {
             </div>
           </section>
 
+          {/* Section Divider */}
+          <div className="relative h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-6 lg:mx-8">
+          </div>
+
           {/* Featured Projects */}
-          <section className="py-6 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
+          <section className="py-12 px-4 sm:px-6 lg:px-8 relative">
+            {/* Minimal Background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background to-background-secondary/20" />
+            
+            <div className="max-w-6xl mx-auto relative z-10">
               <div className="flex justify-between items-center mb-4">
                 <div>
                   <h2 className="font-display text-2xl lg:text-3xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
@@ -548,10 +566,10 @@ export default function Portfolio() {
                     key={index}
                     className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg overflow-hidden"
                   >
-                    <div className="h-1 bg-primary/50" />
+                    <div className="h-1 bg-gradient-to-r from-primary to-primary/60" />
                     {/* Project Image */}
                     {index === 0 && (
-                      <div className="relative h-64 bg-gradient-to-br from-green-500/10 to-blue-600/10 overflow-hidden">
+                      <div className="relative h-64 bg-gradient-to-br from-muted/10 to-muted/5 overflow-hidden">
                         <Image
                           src="/human-detection-dashboard.png"
                           alt="Human Detection System Dashboard"
@@ -561,8 +579,8 @@ export default function Portfolio() {
                           priority
                         />
                         <div className="absolute top-3 right-3 flex gap-2">
-                          <Badge variant="outline" className="text-xs bg-green-500/20 text-green-400 border-green-500/30 backdrop-blur-sm">ESP32</Badge>
-                          <Badge variant="outline" className="text-xs bg-blue-500/20 text-blue-400 border-blue-500/30 backdrop-blur-sm">Edge Computing</Badge>
+                          <Badge variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">ESP32</Badge>
+                          <Badge variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">Edge Computing</Badge>
                         </div>
                       </div>
                     )}
