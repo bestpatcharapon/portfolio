@@ -516,12 +516,12 @@ export default function Portfolio() {
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <Monitor className="w-8 h-8 text-primary mb-3" />
                       <h3 className="font-display font-semibold mb-2 tracking-tight">Frontend</h3>
-                      <p className="text-sm text-muted-foreground">React, Next.js, JavaScript</p>
+                      <p className="text-sm text-muted-foreground">Node.js, React, Next.js, JavaScript</p>
                     </Card>
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <Server className="w-8 h-8 text-primary mb-3" />
                       <h3 className="font-display font-semibold mb-2 tracking-tight">Backend</h3>
-                      <p className="text-sm text-muted-foreground">Node.js, Python, APIs</p>
+                      <p className="text-sm text-muted-foreground">SQL , PostgreSQL , MongoDB</p>
                     </Card>
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <Palette className="w-8 h-8 text-primary mb-3" />
@@ -803,7 +803,7 @@ export default function Portfolio() {
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.email}</h3>
-                <p className="text-muted-foreground text-sm">patcharapon.yoriya@gmail.com</p>
+                <p className="text-muted-foreground text-sm">patcharaponyo65@gmail.com</p>
               </Card>
 
               <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
@@ -811,7 +811,7 @@ export default function Portfolio() {
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.phone}</h3>
-                <p className="text-muted-foreground text-sm">+66 81-234-5678</p>
+                <p className="text-muted-foreground text-sm">+66 80-979-2185</p>
               </Card>
 
               <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
