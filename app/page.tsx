@@ -48,8 +48,7 @@ const translations = {
     },
     hero: {
       greeting: "สวัสดี, ฉัน",
-      name: "พัชรพล",
-      surname: "โยริยะ",
+      name: "พัชรพล โยริยะ",
       title: "วิศวกรซอฟต์แวร์",
       description: "นักพัฒนาซอฟต์แวร์ที่หลงใหลในการสร้างสรรค์เทคโนโลยีที่ทำให้ชีวิตง่ายขึ้น สร้างประสบการณ์ดิจิทัลที่น่าประทับใจ",
       cta: "ดูผลงาน",
@@ -57,14 +56,11 @@ const translations = {
       downloadCV: "ดาวน์โหลด CV",
       socialLinks: "ติดตามฉันได้ที่",
     },
-
-
     featured: {
       title: "โปรเจคเด่น",
       subtitle: "ผลงานล่าสุดที่น่าภูมิใจ",
       viewAll: "ดูทั้งหมด",
     },
-
     quickAbout: {
       title: "เกี่ยวกับฉัน",
       subtitle: "ความหลงใหลในการเขียนโค้ด",
@@ -144,8 +140,7 @@ const translations = {
     },
     hero: {
       greeting: "Hi, I'm",
-      name: "Patcharapon",
-      surname: "Yoriya",
+      name: "Patcharapon Yoriya",
       title: "Software Engineer",
       description:
         "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
@@ -154,13 +149,11 @@ const translations = {
       downloadCV: "Download CV",
       socialLinks: "Follow me on",
     },
-
     featured: {
       title: "Featured Projects",
       subtitle: "Latest work I'm proud of",
       viewAll: "View All",
     },
-
     quickAbout: {
       title: "About Me",
       subtitle: "Passionate about coding",
@@ -256,85 +249,51 @@ const projects = [
     gradient: "from-green-500 to-teal-600",
   },
   {
-    title: "Mobile Banking App",
-    titleTh: "แอปธนาคารมือถือ",
+    title: "Mobile App",
+    titleTh: "แอปมือถือ",
     description:
-      "Secure mobile banking application with biometric authentication, transaction history, and budget tracking",
-    descriptionTh: "แอปพลิเคชันธนาคารมือถือที่ปลอดภัยพร้อมการยืนยันตัวตนด้วยไบโอเมตริก ประวัติการทำธุรกรรม และติดตามงบประมาณ",
-    tech: ["React Native", "Firebase", "Node.js", "JWT", "Expo"],
+      "A cross-platform mobile application with offline capabilities, push notifications, and native performance",
+    descriptionTh: "แอปพลิเคชันมือถือข้ามแพลตฟอร์มพร้อมความสามารถออฟไลน์ การแจ้งเตือนแบบพุช และประสิทธิภาพแบบเนทีฟ",
+    tech: ["React Native", "Expo", "Firebase", "Redux Toolkit", "AsyncStorage"],
     github: "https://github.com",
     demo: "https://demo.com",
     icon: <Smartphone className="w-6 h-6" />,
-    gradient: "from-orange-500 to-red-600",
+    gradient: "from-purple-500 to-pink-600",
   },
   {
     title: "Data Analytics Dashboard",
     titleTh: "แดชบอร์ดวิเคราะห์ข้อมูล",
     description:
-      "Interactive dashboard for data visualization and analytics with real-time charts and reporting features",
-    descriptionTh: "แดชบอร์ดแบบโต้ตอบสำหรับการแสดงผลและวิเคราะห์ข้อมูลพร้อมกราฟแบบเรียลไทม์และฟีเจอร์รายงาน",
-    tech: ["Vue.js", "D3.js", "Python", "FastAPI", "Docker"],
+      "A comprehensive data visualization platform with real-time charts, interactive filters, and export capabilities",
+    descriptionTh: "แพลตฟอร์มการแสดงผลข้อมูลแบบครบวงจรพร้อมกราฟแบบเรียลไทม์ ตัวกรองแบบโต้ตอบ และความสามารถในการส่งออก",
+    tech: ["Vue.js", "D3.js", "Python", "FastAPI", "PostgreSQL"],
     github: "https://github.com",
     demo: "https://demo.com",
     icon: <Database className="w-6 h-6" />,
-    gradient: "from-purple-500 to-pink-600",
+    gradient: "from-orange-500 to-red-600",
   },
-]
-
-const skills = [
-  { name: "JavaScript", level: 90 },
-  { name: "TypeScript", level: 85 },
-  { name: "React", level: 90 },
-  { name: "Next.js", level: 85 },
-  { name: "Node.js", level: 80 },
-  { name: "Python", level: 75 },
-  { name: "MongoDB", level: 80 },
-  { name: "PostgreSQL", level: 75 },
 ]
 
 const experiences = [
   {
-    type: "work",
-    title: "Senior Software Developer",
-    titleTh: "นักพัฒนาซอฟต์แวร์อาวุโส",
-    company: "Tech Innovation Co.",
-    companyTh: "บริษัท เทค อินโนเวชั่น จำกัด",
+    title: "Senior Software Engineer",
+    company: "Tech Company",
     period: "2022 - Present",
-    periodTh: "2022 - ปัจจุบัน",
-    location: "Bangkok, Thailand",
-    locationTh: "กรุงเทพฯ, ประเทศไทย",
-    description: "Led development of multiple web applications using React, Node.js, and MongoDB. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-    descriptionTh: "นำทีมพัฒนาเว็บแอปพลิเคชันหลายโปรเจคด้วย React, Node.js และ MongoDB ทำงานร่วมกับทีมสหสาขาเพื่อส่งมอบโซลูชันซอฟต์แวร์คุณภาพสูง",
+    description: "Leading development of web applications and mentoring junior developers",
   },
   {
-    type: "work",
-    title: "Frontend Developer",
-    titleTh: "นักพัฒนาเว็บส่วนหน้า",
-    company: "Digital Solutions Ltd.",
-    companyTh: "บริษัท ดิจิทัล โซลูชั่นส์ จำกัด",
+    title: "Full Stack Developer",
+    company: "Startup",
     period: "2020 - 2022",
-    periodTh: "2020 - 2022",
-    location: "Chiang Mai, Thailand",
-    locationTh: "เชียงใหม่, ประเทศไทย",
-    description: "Developed responsive web interfaces and improved user experience for e-commerce platforms. Worked with modern frameworks and tools.",
-    descriptionTh: "พัฒนาส่วนติดต่อผู้ใช้เว็บแบบ responsive และปรับปรุงประสบการณ์ผู้ใช้สำหรับแพลตฟอร์มอีคอมเมิร์ซ ทำงานกับ framework และเครื่องมือสมัยใหม่",
+    description: "Built and maintained multiple web applications using modern technologies",
   },
   {
-    type: "education",
-    title: "Bachelor of Computer Science",
-    titleTh: "วิทยาศาสตรบัณฑิต สาขาวิทยาการคอมพิวเตอร์",
-    company: "Kasetsart University",
-    companyTh: "มหาวิทยาลัยเกษตรศาสตร์",
-    period: "2016 - 2020",
-    periodTh: "2016 - 2020",
-    location: "Bangkok, Thailand",
-    locationTh: "กรุงเทพฯ, ประเทศไทย",
-    description: "Graduated with First Class Honors. Specialized in software engineering and web development. Active in programming competitions and tech communities.",
-    descriptionTh: "จบการศึกษาด้วยเกียรตินิยมอันดับหนึ่ง เชี่ยวชาญด้านวิศวกรรมซอฟต์แวร์และการพัฒนาเว็บ เข้าร่วมแข่งขันเขียนโปรแกรมและชุมชนเทคโนโลยี",
+    title: "Junior Developer",
+    company: "Digital Agency",
+    period: "2019 - 2020",
+    description: "Developed responsive websites and collaborated with design teams",
   },
 ]
-
-
 
 export default function Portfolio() {
   const [isDark, setIsDark] = useState(false)
@@ -413,20 +372,20 @@ export default function Portfolio() {
               ))}
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-4">
               <Button
-                variant="ghost"
-                size="icon"
+                variant="outline"
+                size="sm"
                 onClick={toggleLanguage}
-                className="hover:scale-105 transition-transform"
+                className="hidden sm:flex border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-medium"
               >
-                <Globe className="w-4 h-4" />
+                {language === "th" ? "EN" : "TH"}
               </Button>
               <Button
-                variant="ghost"
-                size="icon"
+                variant="outline"
+                size="sm"
                 onClick={toggleTheme}
-                className="hover:scale-105 transition-transform"
+                className="border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-medium"
               >
                 {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </Button>
@@ -435,7 +394,7 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Main Content */}
       {activeSection === "home" && (
         <div className="space-y-2">
           {/* Main Hero */}
@@ -445,136 +404,85 @@ export default function Portfolio() {
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/2 rounded-full blur-3xl" />
 
-            <div className="max-w-7xl mx-auto relative z-10">
-              <div className="grid lg:grid-cols-[1fr_2fr] gap-8 items-center">
-                {/* Text Content */}
-                <div className="text-center lg:text-left">
-                  <div className="animate-fade-in-up">
-                    {/* Profile Picture - Mobile Only */}
-                    <div className="lg:hidden mb-8">
-                      <div className="w-28 h-28 mx-auto mb-6 relative">
-                        <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 rounded-full flex items-center justify-center border border-border/50 shadow-sm hover:shadow-md transition-all duration-300">
-                          {/* Placeholder - Replace with actual profile image */}
-                          <div className="text-3xl">👨‍💻</div>
-                          {/* When you have a profile picture, replace the above with:
-                          <Image
-                            src="/profile-picture.jpg"
-                            alt="Patcharapon Yoriya"
-                            width={112}
-                            height={112}
-                            className="rounded-full object-cover"
-                          />
-                          */}
-            </div>
+            <div className="max-w-4xl mx-auto relative z-10">
+              <div className="text-center">
+                <div className="animate-fade-in-up">
+                  {/* Profile Picture - Mobile Only */}
+                  <div className="lg:hidden mb-8">
+                    <div className="w-28 h-28 mx-auto mb-6 relative">
+                      <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 rounded-full flex items-center justify-center border border-border/50 shadow-sm hover:shadow-md transition-all duration-300">
+                        <div className="text-3xl">👨‍💻</div>
                       </div>
-            </div>
+                    </div>
+                  </div>
 
-                <p className="text-lg text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
-                    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold mb-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight">
-                  {t.hero.name}
-                </h1>
-                    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-250 tracking-tight">
-                  {t.hero.surname}
-                </h1>
-                    <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
-                  {t.hero.title}
-                </h2>
-                    <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up delay-400">
-                  {t.hero.description}
-                </p>
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start animate-fade-in-up delay-500">
-                      <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border-0">
-                    {t.hero.cta}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                      <Button size="lg" variant="outline" className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:bg-muted hover:border-border px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" asChild>
-                        <a href="/cv.pdf" download target="_blank">
-                    <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                    {t.hero.downloadCV}
-                        </a>
-                  </Button>
-                </div>
-
-                {/* Social Media Links */}
-                <div className="mt-8 animate-fade-in-up delay-600">
-                  <p className="text-sm text-muted-foreground mb-4 text-center lg:text-left">{t.hero.socialLinks}</p>
-                  <div className="flex justify-center lg:justify-start gap-3">
-                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
-                      <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
-                        <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                        LinkedIn
-                      </Link>
+                  <p className="text-lg text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
+                  <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight">
+                    {t.hero.name}
+                  </h1>
+                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
+                    {t.hero.title}
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
+                    {t.hero.description}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-in-up delay-500">
+                    <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-white text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium">
+                      {t.hero.cta}
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
-                      <Link href="https://github.com/bestpatcharapon" target="_blank">
-                        <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                        GitHub
-                      </Link>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
-                      <Link href="https://www.youtube.com/@bestpj6139" target="_blank">
-                        <Youtube className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                        YouTube
-                      </Link>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
-                      <Link href="https://www.instagram.com/_imbstt.p/" target="_blank">
-                        <Instagram className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                        Instagram
-                      </Link>
+                    <Button size="lg" variant="outline" className="group border-2 border-gray-300 bg-black text-white hover:bg-gray-900 hover:border-gray-400 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium" asChild>
+                      <a href="/cv.pdf" download target="_blank">
+                        <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        {t.hero.downloadCV}
+                      </a>
                     </Button>
                   </div>
-                </div>
-              </div>
-            </div>
 
-                {/* Video Section - Wider */}
-                <div className="flex justify-center lg:justify-end w-full">
-                  <div className="relative w-full">
-                    <div className="w-full h-[280px] md:h-[400px] lg:h-[500px] relative">
-                      {/* Decorative Elements */}
-                      <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 animate-pulse" />
-                      <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full opacity-20 animate-pulse delay-1000" />
-                      <div className="absolute top-10 right-10 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg opacity-15 animate-pulse delay-500 rotate-12" />
-                      
-                      {/* Main Video Container - Wide Aspect Ratio */}
-                      <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] animate-fade-in-up delay-600 shadow-lg hover:shadow-2xl overflow-hidden">
-                        {/* Your Custom Video - Wide Size */}
-                        <div className="relative w-full h-full">
-                          <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="rounded-2xl object-cover w-full h-full"
-                          >
-                            <source src="/Port.mp4" type="video/mp4" />
-                            {/* Fallback for older browsers */}
-                            <img                            
-                              alt="Video fallback"
-                              className="rounded-2xl object-cover w-full h-full"
-                            />
-                          </video>
-                        </div>
-                </div>
+                  {/* Social Media Links */}
+                  <div className="mt-8 animate-fade-in-up delay-600">
+                    <p className="text-sm text-muted-foreground mb-4">{t.hero.socialLinks}</p>
+                    <div className="flex justify-center gap-3">
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                        <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
+                          <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          LinkedIn
+                        </Link>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                        <Link href="https://github.com/bestpatcharapon" target="_blank">
+                          <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          GitHub
+                        </Link>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                        <Link href="https://www.youtube.com/@bestpj6139" target="_blank">
+                          <Youtube className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          YouTube
+                        </Link>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                        <Link href="https://www.instagram.com/_imbstt.p/" target="_blank">
+                          <Instagram className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          Instagram
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
           </section>
 
-
-
           {/* Quick About Section */}
           <section className="py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-6 items-center">
-                                  <div className="space-y-3">
+                <div className="space-y-3">
                   <div>
-                      <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.quickAbout.title}</h2>
-                      <p className="text-xl text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
-                      <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
+                    <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.quickAbout.title}</h2>
+                    <p className="text-xl text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
+                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
                   </div>
                   <p className="text-lg text-muted-foreground leading-relaxed">{t.quickAbout.description}</p>
 
@@ -594,24 +502,24 @@ export default function Portfolio() {
 
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-6">
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <Code className="w-8 h-8 text-primary mb-3" />
                       <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.cleanCode.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.cleanCode.description}</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <Zap className="w-8 h-8 text-primary mb-3" />
-                                              <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.fastPerformance.title}</h3>
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.fastPerformance.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.fastPerformance.description}</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <CheckCircle className="w-8 h-8 text-primary mb-3" />
-                                              <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.qualityAssured.title}</h3>
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.qualityAssured.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.qualityAssured.description}</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
                       <Heart className="w-8 h-8 text-primary mb-3" />
-                                              <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.userFocused.title}</h3>
+                      <h3 className="font-display font-semibold mb-2 tracking-tight">{t.quickAbout.features.userFocused.title}</h3>
                       <p className="text-sm text-muted-foreground">{t.quickAbout.features.userFocused.description}</p>
                     </Card>
                   </div>
@@ -619,8 +527,6 @@ export default function Portfolio() {
               </div>
             </div>
           </section>
-
-
 
           {/* Featured Projects */}
           <section className="py-6 px-4 sm:px-6 lg:px-8">
@@ -630,7 +536,7 @@ export default function Portfolio() {
                   <h2 className="font-display text-3xl lg:text-4xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
                   <p className="text-lg text-muted-foreground">{t.featured.subtitle}</p>
                 </div>
-                <Button variant="outline" onClick={() => setActiveSection("projects")} className="group">
+                <Button variant="outline" onClick={() => setActiveSection("projects")} className="group border-2 border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-medium">
                   {t.featured.viewAll}
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -640,7 +546,7 @@ export default function Portfolio() {
                 {projects.slice(0, 2).map((project, index) => (
                   <Card
                     key={index}
-                    className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm overflow-hidden"
+                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg overflow-hidden"
                   >
                     <div className="h-1 bg-primary/50" />
                     <CardHeader className="pb-4">
@@ -689,8 +595,6 @@ export default function Portfolio() {
               </div>
             </div>
           </section>
-
-
         </div>
       )}
 
@@ -720,25 +624,12 @@ export default function Portfolio() {
               </div>
 
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold mb-6">{t.about.skills}</h3>
-                
-                {/* Skills Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {skills.map((skill) => (
-                    <div key={skill.name} className="group">
-                      <Card className="p-4 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
-                        <div className="w-8 h-8 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
-                          <Code className="w-4 h-4 text-primary" />
-                      </div>
-                        <h4 className="font-medium text-sm mb-3">{skill.name}</h4>
-                        <div className="w-full bg-muted/50 rounded-full h-1">
-                        <div
-                            className="bg-primary h-1 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
-                      </Card>
-                    </div>
+                <h3 className="font-display text-2xl font-bold mb-4 tracking-tight">{t.about.skills}</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {["Frontend", "Backend", "Mobile", "Database", "DevOps", "Design"].map((skill) => (
+                    <Card key={skill} className="p-4 text-center border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                      <div className="text-sm font-medium text-foreground">{skill}</div>
+                    </Card>
                   ))}
                 </div>
               </div>
@@ -760,38 +651,16 @@ export default function Portfolio() {
             <div className="space-y-5">
               {experiences.map((exp, index) => (
                 <Card key={index} className="p-6 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
-                        {exp.type === 'work' ? (
-                          <Briefcase className="w-5 h-5 text-primary" />
-                        ) : (
-                          <Users className="w-5 h-5 text-primary" />
-                        )}
-                      </div>
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <h3 className="font-display font-semibold text-lg tracking-tight">{exp.title}</h3>
+                      <p className="text-primary font-medium">{exp.company}</p>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 className="text-lg font-semibold text-foreground">
-                          {language === "th" ? exp.titleTh : exp.title}
-                        </h3>
-                        <span className="text-sm text-muted-foreground">
-                          {language === "th" ? exp.periodTh : exp.period}
-                        </span>
-                      </div>
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <h4 className="text-base font-medium text-primary">
-                          {language === "th" ? exp.companyTh : exp.company}
-                        </h4>
-                        <span className="text-sm text-muted-foreground">
-                          {language === "th" ? exp.locationTh : exp.location}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed text-sm">
-                        {language === "th" ? exp.descriptionTh : exp.description}
-                      </p>
-                    </div>
+                    <Badge variant="outline" className="text-xs">
+                      {exp.period}
+                    </Badge>
                   </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
                 </Card>
               ))}
             </div>
@@ -869,18 +738,20 @@ export default function Portfolio() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{t.contact.title}</h2>
-              <p className="text-xl text-primary font-medium mb-4">{t.contact.subtitle}</p>
-              <p className="text-lg text-muted-foreground mb-6">{t.contact.description}</p>
+              <p className="text-lg text-muted-foreground mb-6">{t.contact.subtitle}</p>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
+            <p className="text-center text-muted-foreground mb-10 leading-relaxed">{t.contact.description}</p>
+
+            {/* Contact Info Cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.email}</h3>
-                <p className="text-muted-foreground text-sm">patcharaponyo65@gmail.com</p>
+                <p className="text-muted-foreground text-sm">patcharapon.yoriya@gmail.com</p>
               </Card>
 
               <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
@@ -888,7 +759,7 @@ export default function Portfolio() {
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-medium text-base mb-2 tracking-tight">{t.contact.phone}</h3>
-                <p className="text-muted-foreground text-sm">+66 080 979 2185</p>
+                <p className="text-muted-foreground text-sm">+66 81-234-5678</p>
               </Card>
 
               <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
@@ -947,40 +818,9 @@ export default function Portfolio() {
                 </Button>
               </form>
             </Card>
-
-            <div className="flex justify-center space-x-4">
-              <Button variant="outline" size="lg" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200">
-                <Link href="https://github.com/bestpatcharapon" target="_blank">
-                  <Github className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  GitHub
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200">
-                <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
-                  <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  LinkedIn
-                </Link>
-
-              </Button>
-            </div>
           </div>
         </section>
       )}
-
-      {/* Footer */}
-      <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm py-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto text-center">
-
-          
-
-          
-          <div className="border-t border-border/50 pt-6">
-            <p className="text-muted-foreground text-sm">
-              &copy; 2025. Made with ❤️ Patcharapon Yortiya
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
