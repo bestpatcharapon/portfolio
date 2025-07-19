@@ -29,6 +29,8 @@ import {
   Heart,
   CheckCircle,
   Briefcase,
+  Youtube,
+  Instagram,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -53,6 +55,7 @@ const translations = {
       cta: "ดูผลงาน",
       hireMeBtn: "จ้างฉัน",
       downloadCV: "ดาวน์โหลด CV",
+      socialLinks: "ติดตามฉันได้ที่",
     },
 
 
@@ -141,14 +144,15 @@ const translations = {
     },
     hero: {
       greeting: "Hi, I'm",
-      name: "",
-      surname: "",
-      title: "",
+      name: "Patcharapon",
+      surname: "Yoriya",
+      title: "Software Engineer",
       description:
         "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
       cta: "View My Work",
       hireMeBtn: "Hire Me",
       downloadCV: "Download CV",
+      socialLinks: "Follow me on",
     },
 
     featured: {
@@ -489,6 +493,37 @@ export default function Portfolio() {
                     {t.hero.downloadCV}
                         </a>
                   </Button>
+                </div>
+
+                {/* Social Media Links */}
+                <div className="mt-8 animate-fade-in-up delay-600">
+                  <p className="text-sm text-muted-foreground mb-4 text-center lg:text-left">{t.hero.socialLinks}</p>
+                  <div className="flex justify-center lg:justify-start gap-3">
+                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                      <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
+                        <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        LinkedIn
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                      <Link href="https://github.com/bestpatcharapon" target="_blank">
+                        <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        GitHub
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                      <Link href="https://www.youtube.com/@bestpj6139" target="_blank">
+                        <Youtube className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        YouTube
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="sm" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                      <Link href="https://www.instagram.com/_imbstt.p/" target="_blank">
+                        <Instagram className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        Instagram
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -925,12 +960,7 @@ export default function Portfolio() {
                   <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   LinkedIn
                 </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="group border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-200">
-                <Link href="https://twitter.com" target="_blank">
-                  <Twitter className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Twitter
-                </Link>
+
               </Button>
             </div>
           </div>
@@ -940,15 +970,13 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-6">
-            <div className="font-display font-bold text-2xl text-foreground mb-2 tracking-tight">
-              
-            </div>
-            <p className="text-muted-foreground text-sm"></p>
-          </div>
+
+          
+
+          
           <div className="border-t border-border/50 pt-6">
             <p className="text-muted-foreground text-sm">
-              &copy; 2025. Made with ❤️ using Next.js & Tailwind CSS
+              &copy; 2025. Made with ❤️ Patcharapon Yortiya
             </p>
           </div>
         </div>
