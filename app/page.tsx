@@ -11,7 +11,6 @@ import Image from "next/image"
 import {
   Moon,
   Sun,
-  Globe,
   Github,
   ExternalLink,
   Mail,
@@ -23,12 +22,7 @@ import {
   Download,
   ArrowRight,
   Linkedin,
-  Twitter,
   Users,
-  Zap,
-  Heart,
-  CheckCircle,
-  Briefcase,
   Youtube,
   Instagram,
   Monitor,
@@ -51,12 +45,10 @@ const translations = {
       contact: "ติดต่อ",
     },
     hero: {
-      greeting: "สวัสดี, ฉัน",
       name: "พัชรพล โยริยะ",
-      title: "วิศวกรซอฟต์แวร์",
+      title: "วิศวกรคอมพิวเตอร์",
       description: "นักพัฒนาซอฟต์แวร์ที่หลงใหลในการสร้างสรรค์เทคโนโลยีที่ทำให้ชีวิตง่ายขึ้น สร้างประสบการณ์ดิจิทัลที่น่าประทับใจ",
       cta: "ดูผลงาน",
-      hireMeBtn: "จ้างฉัน",
       downloadCV: "ดาวน์โหลด CV",
       socialLinks: "ติดตามฉันได้ที่",
     },
@@ -70,24 +62,6 @@ const translations = {
       subtitle: "ความหลงใหลในการเขียนโค้ด",
       description: "ฉันเป็นนักพัฒนาซอฟต์แวร์ที่มีประสบการณ์ 3+ ปี ชอบเรียนรู้เทคโนโลยีใหม่ๆ และสร้างสรรค์โซลูชันที่แก้ปัญหาได้จริง",
       learnMore: "เรียนรู้เพิ่มเติม",
-      features: {
-        cleanCode: {
-          title: "โค้ดที่สะอาด",
-          description: "เขียนโค้ดที่บำรุงรักษาและขยายได้ง่าย"
-        },
-        fastPerformance: {
-          title: "ประสิทธิภาพสูง",
-          description: "ปรับแต่งให้เร็วและมีประสิทธิภาพ"
-        },
-        qualityAssured: {
-          title: "รับประกันคุณภาพ",
-          description: "ทดสอบอย่างละเอียดและเชื่อถือได้"
-        },
-        userFocused: {
-          title: "เน้นผู้ใช้",
-          description: "ออกแบบโดยคำนึงถึงผู้ใช้เป็นหลัก"
-        }
-      }
     },
     about: {
       title: "เกี่ยวกับฉัน",
@@ -100,8 +74,6 @@ const translations = {
     experience: {
       title: "ประสบการณ์และการศึกษา",
       subtitle: "เส้นทางการเรียนรู้และพัฒนาของฉัน",
-      work: "ประสบการณ์การทำงาน",
-      education: "การศึกษา",
     },
     projects: {
       title: "โปรเจคของฉัน",
@@ -125,9 +97,6 @@ const translations = {
         message: "ข้อความ",
         messageLabel: "ข้อความของคุณ",
         send: "ส่งข้อความ",
-        sending: "กำลังส่ง...",
-        success: "ส่งข้อความสำเร็จ!",
-        error: "เกิดข้อผิดพลาด กรุณาลองใหม่",
       },
     },
   },
@@ -143,13 +112,11 @@ const translations = {
       contact: "Contact",
     },
     hero: {
-      greeting: "Hi, I'm",
       name: "Patcharapon Yoriya",
-      title: "Software Engineer",
+      title: "Computer Engineer",
       description:
         "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
       cta: "View My Work",
-      hireMeBtn: "Hire Me",
       downloadCV: "Download CV",
       socialLinks: "Follow me on",
     },
@@ -164,24 +131,6 @@ const translations = {
       description:
         "I'm a software developer with 3+ years of experience who loves learning new technologies and creating solutions that solve real problems",
       learnMore: "Learn More",
-      features: {
-        cleanCode: {
-          title: "Clean Code",
-          description: "Writing maintainable and scalable code"
-        },
-        fastPerformance: {
-          title: "Fast Performance",
-          description: "Optimized for speed and efficiency"
-        },
-        qualityAssured: {
-          title: "Quality Assured",
-          description: "Thoroughly tested and reliable"
-        },
-        userFocused: {
-          title: "User Focused",
-          description: "Designed with users in mind"
-        }
-      }
     },
     about: {
       title: "About Me",
@@ -194,8 +143,6 @@ const translations = {
     experience: {
       title: "Experience & Education",
       subtitle: "My learning and development journey",
-      work: "Work Experience",
-      education: "Education",
     },
     projects: {
       title: "My Projects",
@@ -219,9 +166,6 @@ const translations = {
         message: "Message",
         messageLabel: "Your Message",
         send: "Send Message",
-        sending: "Sending...",
-        success: "Message sent successfully!",
-        error: "Something went wrong. Please try again.",
       },
     },
   },
@@ -343,7 +287,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background transition-colors duration-500">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b z-50 transition-all duration-300">
-        <div className="max-w-6xl mx-auto pl-2 pr-4 sm:pl-4 sm:pr-6 lg:pl-6 lg:pr-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <button 
               onClick={() => setActiveSection("home")}
@@ -359,7 +303,7 @@ export default function Portfolio() {
               </div>
             </button>
 
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
               {Object.entries(t.nav).map(([key, value]) => (
                 <button
                   key={key}
@@ -403,15 +347,11 @@ export default function Portfolio() {
         <div className="space-y-0">
           {/* Main Hero */}
           <section className="pt-20 pb-6 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            {/* Minimal Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-muted/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-muted/5 rounded-full blur-3xl" />
-
-            <div className="max-w-4xl mx-auto relative z-10">
-              <div className="text-center">
-                <div className="animate-fade-in-up">
-                  {/* Profile Picture - Mobile Only */}
+            <div className="max-w-7xl mx-auto relative z-10">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
+                {/* Left Column - Content */}
+                <div className="space-y-8 animate-fade-in-up">
+                  {/* Mobile Profile Picture */}
                   <div className="lg:hidden mb-8">
                     <div className="w-28 h-28 mx-auto mb-6 relative">
                       <div className="w-full h-full bg-gradient-to-br from-muted/30 to-muted/20 rounded-full flex items-center justify-center border border-border/30 shadow-sm hover:shadow-md transition-all duration-300">
@@ -420,66 +360,97 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <p className="text-base text-muted-foreground mb-2 animate-fade-in-up delay-100">{t.hero.greeting}</p>
-                  <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight">
-                    {t.hero.name}
-                  </h1>
-                  <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-medium mb-2 text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
-                    {t.hero.title}
-                  </h2>
-                  <p className="text-base text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
-                    {t.hero.description}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-in-up delay-500">
-                    <Button size="default" onClick={() => setActiveSection("projects")} className="group bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium">
+                  {/* Portfolio Badge */}
+                  <div className="animate-fade-in-up delay-100">
+                    <div className="inline-flex items-center gap-3 mb-6">
+                      <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary/60"></div>
+                      <span className="text-sm font-mono tracking-[0.3em] text-primary/80 uppercase font-bold">
+                        Portfolio
+                      </span>
+                      <div className="h-px w-8 bg-gradient-to-r from-primary/60 to-transparent"></div>
+                    </div>
+                  </div>
+
+                  {/* Main Content */}
+                  <div className="space-y-6">
+                    <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-fade-in-up delay-200 tracking-tight leading-tight">
+                      {t.hero.name}
+                    </h1>
+                    <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium text-muted-foreground animate-fade-in-up delay-300 tracking-tight">
+                      {t.hero.title}
+                    </h2>
+                    <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up delay-400 max-w-lg">
+                      {t.hero.description}
+                    </p>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
+                    <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium text-base">
                       {t.hero.cta}
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                    <Button size="default" variant="outline" className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium" asChild>
+                    <Button size="lg" variant="outline" className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium text-base" asChild>
                       <a href="/cv.pdf" download target="_blank">
-                        <Download className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                         {t.hero.downloadCV}
                       </a>
                     </Button>
                   </div>
 
                   {/* Social Media Links */}
-                  <div className="mt-6 animate-fade-in-up delay-600">
-                    <p className="text-xs text-muted-foreground mb-3">{t.hero.socialLinks}</p>
-                    <div className="flex justify-center gap-2">
+                  <div className="animate-fade-in-up delay-600">
+                    <p className="text-sm text-muted-foreground mb-4">{t.hero.socialLinks}</p>
+                    <div className="flex gap-3">
                       <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
-                          <Linkedin className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
+                          <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           LinkedIn
                         </Link>
                       </Button>
                       <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://github.com/bestpatcharapon" target="_blank">
-                          <Github className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
+                          <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           GitHub
                         </Link>
                       </Button>
                       <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.youtube.com/@bestpj6139" target="_blank">
-                          <Youtube className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
+                          <Youtube className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           YouTube
                         </Link>
                       </Button>
                       <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.instagram.com/_imbstt.p/" target="_blank">
-                          <Instagram className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" />
+                          <Instagram className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           Instagram
                         </Link>
                       </Button>
                       <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
                         <Link href="https://www.tiktok.com/@snorlax1or8" target="_blank">
-                          <svg className="w-3 h-3 mr-1 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                          <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                           </svg>
                           TikTok
                         </Link>
                       </Button>
                     </div>
+                  </div>
+                </div>
+
+                {/* Right Column - Image */}
+                <div className="relative animate-fade-in-up delay-300">
+                  <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                    <Image
+                      src="/Profile.jpg"
+                      alt="Patcharapon Yoriya"
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className="rounded-2xl"
+                      priority
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/20 rounded-2xl"></div>
                   </div>
                 </div>
               </div>
