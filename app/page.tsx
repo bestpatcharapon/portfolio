@@ -439,19 +439,34 @@ export default function Portfolio() {
                 </div>
 
                 {/* Right Column - Image */}
-                <div className="relative animate-fade-in-up delay-300">
-                  <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative animate-fade-in-up delay-300 group">
+                  {/* Floating Elements */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full blur-sm group-hover:bg-primary/30 transition-all duration-500"></div>
+                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-primary/10 rounded-full blur-md group-hover:bg-primary/20 transition-all duration-700"></div>
+                  <div className="absolute top-1/2 -right-8 w-6 h-6 bg-primary/15 rounded-full blur-sm group-hover:scale-110 transition-all duration-600"></div>
+                  
+                  <div className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-[1.02] group-hover:-rotate-1">
                     <Image
                       src="/Profile.jpg"
                       alt="Patcharapon Yoriya"
                       fill
                       style={{ objectFit: "cover" }}
-                      className="rounded-2xl"
+                      className="rounded-2xl group-hover:scale-105 transition-transform duration-700"
                       priority
                     />
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/20 rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/20 rounded-2xl group-hover:from-primary/20 group-hover:to-background/30 transition-all duration-500"></div>
+                    
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Border Glow */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/30 transition-all duration-500"></div>
                   </div>
+                  
+                  {/* Decorative Lines */}
+                  <div className="absolute -top-2 left-4 w-16 h-px bg-gradient-to-r from-primary/40 to-transparent group-hover:w-20 transition-all duration-500"></div>
+                  <div className="absolute -bottom-2 right-4 w-16 h-px bg-gradient-to-l from-primary/40 to-transparent group-hover:w-20 transition-all duration-500"></div>
                 </div>
               </div>
             </div>
