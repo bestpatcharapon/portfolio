@@ -293,12 +293,12 @@ export default function Portfolio() {
               onClick={() => setActiveSection("home")}
               className="flex items-center space-x-2 hover:scale-105 transition-all duration-200 cursor-pointer group"
             >
-              <div className="px-2 py-1 bg-gradient-to-r from-primary to-primary/60 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-200">
-                <span className="font-bold text-sm text-white">
+              <div className="px-2 py-1 bg-primary rounded-lg transition-all duration-200">
+                <span className="font-bold text-sm text-primary-foreground">
                   {t.brand.logo}
                 </span>
               </div>
-              <div className="font-display font-bold text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent tracking-tight group-hover:from-primary/80 group-hover:to-primary/80 transition-all duration-200">
+              <div className="font-display font-bold text-2xl text-foreground tracking-tight transition-all duration-200">
                 {t.brand.title}
               </div>
             </button>
