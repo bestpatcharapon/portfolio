@@ -183,6 +183,20 @@ const projects = [
     demo: "https://web-xdtm.onrender.com/",
     icon: <Users className="w-6 h-6" />,
     gradient: "from-green-500 to-blue-600",
+    image: "/human-detection-dashboard.png",
+  },
+  {
+    title: "Shabu Restaurant Management System",
+    titleTh: "ระบบจัดการร้านชาบู",
+    description:
+      "A comprehensive restaurant management system built with PHP and SQLite. Features include food menu management, admin dashboard, order processing, and inventory tracking for a shabu restaurant.",
+    descriptionTh: "ระบบจัดการร้านอาหารชาบูแบบครบวงจรที่พัฒนาด้วย PHP และ SQLite ประกอบด้วยการจัดการเมนูอาหาร แดชบอร์ดสำหรับผู้ดูแลระบบ การประมวลผลคำสั่งซื้อ และการติดตามสินค้าคงคลัง",
+    tech: ["PHP", "SQLite", "HTML", "CSS", "JavaScript", "Batch Scripts"],
+    github: "https://github.com/bestpatcharapon/Shabu",
+    demo: "https://github.com/bestpatcharapon/Shabu",
+    icon: <Database className="w-6 h-6" />,
+    gradient: "from-orange-500 to-red-600",
+    image: "/shabu.png",
   },
   {
     title: "Task Management App",
@@ -562,19 +576,22 @@ export default function Portfolio() {
                   >
                     <div className="h-1 bg-gradient-to-r from-primary to-primary/60" />
                     {/* Project Image */}
-                    {index === 0 && (
+                    {project.image && (
                       <div className="relative h-64 bg-gradient-to-br from-muted/10 to-muted/5 overflow-hidden">
                         <Image
-                          src="/human-detection-dashboard.png"
-                          alt="Human Detection System Dashboard"
+                          src={project.image}
+                          alt={language === "th" ? project.titleTh : project.title}
                           fill
                           style={{ objectFit: "cover" }}
                           className="rounded-t-lg"
                           priority
                         />
                         <div className="absolute top-3 right-3 flex gap-2">
-                          <Badge variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">ESP32</Badge>
-                          <Badge variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">Edge Computing</Badge>
+                          {project.tech.slice(0, 2).map((tech) => (
+                            <Badge key={tech} variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">
+                              {tech}
+                            </Badge>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -715,19 +732,22 @@ export default function Portfolio() {
                 >
                   <div className="h-1 bg-primary/50" />
                   {/* Project Image */}
-                  {index === 0 && (
-                    <div className="relative h-64 bg-gradient-to-br from-green-500/10 to-blue-600/10 overflow-hidden">
+                  {project.image && (
+                    <div className="relative h-64 bg-gradient-to-br from-muted/10 to-muted/5 overflow-hidden">
                       <Image
-                        src="/human-detection-dashboard.png"
-                        alt="Human Detection System Dashboard"
+                        src={project.image}
+                        alt={language === "th" ? project.titleTh : project.title}
                         fill
                         style={{ objectFit: "cover" }}
                         className="rounded-t-lg"
                         priority
                       />
                       <div className="absolute top-3 right-3 flex gap-2">
-                        <Badge variant="outline" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">ESP32</Badge>
-                        <Badge variant="outline" className="text-xs bg-blue-500/20 text-blue-400 border-blue-500/30">Edge Computing</Badge>
+                        {project.tech.slice(0, 2).map((tech) => (
+                          <Badge key={tech} variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">
+                            {tech}
+                          </Badge>
+                        ))}
                       </div>
                     </div>
                   )}
