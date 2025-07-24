@@ -31,6 +31,8 @@ import {
   Music,
 } from "lucide-react"
 import Link from "next/link"
+import { sendEmail, initEmailJS } from "@/lib/emailjs"
+import { toast, Toaster } from "sonner"
 
 const translations = {
   th: {
@@ -262,6 +264,15 @@ export default function Portfolio() {
   const [language, setLanguage] = useState<"th" | "en">("th")
   const [activeSection, setActiveSection] = useState("home")
   const [mounted, setMounted] = useState(false)
+  
+  // Contact form states
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -272,6 +283,9 @@ export default function Portfolio() {
       setIsDark(true)
       document.documentElement.classList.add("dark")
     }
+    
+    // Initialize EmailJS
+    initEmailJS()
   }, [])
 
   const t = translations[language]
@@ -291,6 +305,42 @@ export default function Portfolio() {
 
   const toggleLanguage = () => {
     setLanguage(language === "th" ? "en" : "th")
+  }
+
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast.error(language === "th" ? "กรุณากรอกข้อมูลให้ครบถ้วน" : "Please fill in all fields")
+      return
+    }
+
+    setIsSubmitting(true)
+    
+    try {
+      const result = await sendEmail(formData)
+      
+      if (result.success) {
+        toast.success(language === "th" ? "ส่งข้อความสำเร็จ!" : "Message sent successfully!")
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        toast.error(language === "th" ? "เกิดข้อผิดพลาดในการส่งข้อความ" : "Failed to send message")
+      }
+    } catch (error) {
+      toast.error(language === "th" ? "เกิดข้อผิดพลาดในการส่งข้อความ" : "Failed to send message")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (!mounted) {
@@ -336,20 +386,38 @@ export default function Portfolio() {
 
             <div className="flex items-center space-x-4">
               <Button
-                variant="outline"
-                size="sm"
                 onClick={toggleLanguage}
-                className="hidden sm:flex border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium"
+                className="hidden sm:flex border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium h-9 rounded-md px-3"
               >
                 {language === "th" ? "EN" : "TH"}
               </Button>
               <Button
-                variant="outline"
-                size="sm"
                 onClick={toggleTheme}
-                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium"
+                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium h-9 rounded-md px-3"
               >
                 {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </Button>
+
+              {/* GitHub Button */}
+              <Button
+                asChild
+                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium h-9 rounded-md px-3"
+              >
+                <Link href="https://github.com/bestpatcharapon" target="_blank">
+                  <Github className="w-4 h-4" />
+                </Link>
+              </Button>
+
+              {/* Invite Button */}
+              <Button
+                onClick={() => setActiveSection("contact")}
+                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium flex items-center gap-2 h-9 rounded-md px-3"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                {language === "th" ? "ชักชวน" : "Invite"}
               </Button>
             </div>
           </div>
@@ -400,11 +468,11 @@ export default function Portfolio() {
 
                   {/* Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
-                    <Button size="lg" onClick={() => setActiveSection("projects")} className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium text-base">
+                    <Button onClick={() => setActiveSection("projects")} className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium text-base h-11 rounded-md px-8">
                       {t.hero.cta}
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                    <Button size="lg" variant="outline" className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium text-base" asChild>
+                    <Button className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium text-base h-11 rounded-md px-8" asChild>
                       <a href="/cv.pdf" download target="_blank">
                         <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                         {t.hero.downloadCV}
@@ -416,31 +484,31 @@ export default function Portfolio() {
                   <div className="animate-fade-in-up delay-600">
                     <p className="text-sm text-muted-foreground mb-4">{t.hero.socialLinks}</p>
                     <div className="flex gap-3">
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium h-9 rounded-md px-3">
                         <Link href="https://www.linkedin.com/in/patcharapon-yoriya-153459357/" target="_blank">
                           <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           LinkedIn
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium h-9 rounded-md px-3">
                         <Link href="https://github.com/bestpatcharapon" target="_blank">
                           <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           GitHub
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium h-9 rounded-md px-3">
                         <Link href="https://www.youtube.com/@bestpj6139" target="_blank">
                           <Youtube className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           YouTube
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium h-9 rounded-md px-3">
                         <Link href="https://www.instagram.com/_imbstt.p/" target="_blank">
                           <Instagram className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                           Instagram
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium">
+                      <Button asChild className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 hover:scale-105 font-medium h-9 rounded-md px-3">
                         <Link href="https://www.tiktok.com/@snorlax1or8" target="_blank">
                           <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
@@ -507,7 +575,7 @@ export default function Portfolio() {
 
                   <div className="flex flex-wrap gap-2">
                     {["React", "Next.js", "JavaScript", "Node.js", "Python"].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="px-2 py-1 text-xs">
+                      <Badge key={tech} className="px-2 py-1 text-xs border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
                         {tech}
                       </Badge>
                     ))}
@@ -562,7 +630,7 @@ export default function Portfolio() {
                   <h2 className="font-display text-2xl lg:text-3xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
                   <p className="text-base text-muted-foreground">{t.featured.subtitle}</p>
                 </div>
-                <Button variant="outline" onClick={() => setActiveSection("projects")} className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium text-sm">
+                <Button onClick={() => setActiveSection("projects")} className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium text-sm">
                   {t.featured.viewAll}
                   <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -588,7 +656,7 @@ export default function Portfolio() {
                         />
                         <div className="absolute top-3 right-3 flex gap-2">
                           {project.tech.slice(0, 2).map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">
+                            <Badge key={tech} className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm text-foreground">
                               {tech}
                             </Badge>
                           ))}
@@ -613,22 +681,21 @@ export default function Portfolio() {
                         {project.tech.slice(0, 3).map((tech) => (
                           <Badge
                             key={tech}
-                            variant="secondary"
-                            className="hover:bg-primary/10 hover:text-primary transition-colors text-xs"
+                            className="hover:bg-primary/10 hover:text-primary transition-colors text-xs border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80"
                           >
                             {tech}
                           </Badge>
                         ))}
-                        {project.tech.length > 3 && <Badge variant="outline" className="text-xs">+{project.tech.length - 3}</Badge>}
+                        {project.tech.length > 3 && <Badge className="text-xs text-foreground">+{project.tech.length - 3}</Badge>}
                       </div>
                       <div className="flex gap-3">
-                        <Button variant="default" size="sm" asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90">
+                        <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
                           <Link href={project.demo} target="_blank">
                             <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                             {t.projects.viewProject}
                           </Link>
                         </Button>
-                        <Button variant="outline" size="sm" asChild className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary">
+                        <Button asChild className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary h-9 rounded-md px-3">
                           <Link href={project.github} target="_blank">
                             <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                             {t.projects.viewCode}
@@ -702,7 +769,7 @@ export default function Portfolio() {
                       <h3 className="font-display font-semibold text-lg tracking-tight">{exp.title}</h3>
                       <p className="text-primary font-medium">{exp.company}</p>
                     </div>
-                    <Badge variant="outline" className="text-xs">
+                    <Badge className="text-xs">
                       {exp.period}
                     </Badge>
                   </div>
@@ -744,7 +811,7 @@ export default function Portfolio() {
                       />
                       <div className="absolute top-3 right-3 flex gap-2">
                         {project.tech.slice(0, 2).map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">
+                          <Badge key={tech} className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm">
                             {tech}
                           </Badge>
                         ))}
@@ -769,7 +836,6 @@ export default function Portfolio() {
                       {project.tech.map((tech) => (
                         <Badge
                           key={tech}
-                          variant="secondary"
                           className="hover:bg-primary/10 hover:text-primary transition-colors text-xs"
                         >
                           {tech}
@@ -777,13 +843,13 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <Button variant="default" size="sm" asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90">
+                      <Button className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
                         <Link href={project.demo} target="_blank">
                           <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                           {t.projects.viewProject}
                         </Link>
                       </Button>
-                      <Button variant="outline" size="sm" asChild className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary">
+                      <Button className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary h-9 rounded-md px-3">
                         <Link href={project.github} target="_blank">
                           <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                           {t.projects.viewCode}
@@ -808,11 +874,11 @@ export default function Portfolio() {
               <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            <p className="text-center text-muted-foreground mb-10 leading-relaxed">{t.contact.description}</p>
+
 
             {/* Contact Info Cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
@@ -820,7 +886,7 @@ export default function Portfolio() {
                 <p className="text-muted-foreground text-sm">patcharaponyo65@gmail.com</p>
               </Card>
 
-              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -828,7 +894,7 @@ export default function Portfolio() {
                 <p className="text-muted-foreground text-sm">+66 80-979-2185</p>
               </Card>
 
-              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
@@ -838,16 +904,19 @@ export default function Portfolio() {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-8 mb-10 border border-border/50 bg-background/50 backdrop-blur-sm">
-              <form className="space-y-6">
+            <Card className="p-8 mb-10 border-2 border-border bg-background/50 backdrop-blur-sm">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-sm font-medium">{t.contact.form.name}</Label>
                     <Input
                       id="name"
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder={t.contact.form.nameLabel}
-                      className="border-border/50 bg-background/50 backdrop-blur-sm"
+                      className="border-2 border-border bg-background/50 backdrop-blur-sm"
                     />
                   </div>
                   <div className="space-y-2">
@@ -855,8 +924,11 @@ export default function Portfolio() {
                     <Input
                       id="email"
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder={t.contact.form.emailLabel}
-                      className="border-border/50 bg-background/50 backdrop-blur-sm"
+                      className="border-2 border-border bg-background/50 backdrop-blur-sm"
                     />
                   </div>
                 </div>
@@ -865,8 +937,11 @@ export default function Portfolio() {
                   <Input
                     id="subject"
                     type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     placeholder={t.contact.form.subjectLabel}
-                    className="border-border/50 bg-background/50 backdrop-blur-sm"
+                    className="border-2 border-border bg-background/50 backdrop-blur-sm"
                   />
                 </div>
                 <div className="space-y-2">
@@ -874,19 +949,32 @@ export default function Portfolio() {
                   <Textarea
                     id="message"
                     rows={5}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder={t.contact.form.messageLabel}
-                    className="resize-none border-border/50 bg-background/50 backdrop-blur-sm"
+                    className="resize-none border-2 border-border bg-background/50 backdrop-blur-sm"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full group bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md transition-all duration-200">
-                  <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  {t.contact.form.send}
+                <Button className="w-full group bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md transition-all duration-200" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  ) : (
+                    <>
+                      <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                      {t.contact.form.send}
+                    </>
+                  )}
                 </Button>
               </form>
             </Card>
           </div>
         </section>
       )}
+      <Toaster />
     </div>
   )
 }
