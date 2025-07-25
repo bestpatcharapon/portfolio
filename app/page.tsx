@@ -443,13 +443,28 @@ export default function Portfolio() {
                   </div>
 
                   {/* Portfolio Badge */}
-                  <div className="animate-fade-in-up delay-100">
-                    <div className="inline-flex items-center gap-3 mb-6">
-                      <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary/60"></div>
-                      <span className="text-sm font-mono tracking-[0.3em] text-primary/80 uppercase font-bold">
-                        Portfolio
-                      </span>
-                      <div className="h-px w-8 bg-gradient-to-r from-primary/60 to-transparent"></div>
+                  <div className="animate-fade-in-up delay-100 mb-8">
+                    <div className="relative inline-block group">
+                      {/* Animated background gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 rounded-2xl blur-md group-hover:blur-lg transition-all duration-500"></div>
+                      
+                      {/* Main container with glass effect */}
+                      <div className="relative bg-gradient-to-br from-background/80 via-background/60 to-background/80 backdrop-blur-md border border-primary/40 rounded-2xl p-6 shadow-2xl group-hover:shadow-primary/20 group-hover:border-primary/60 transition-all duration-300">
+                        
+                        {/* Inner glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        {/* Text with gradient */}
+                        <span className="relative text-5xl font-mono tracking-[0.1em] uppercase font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/60 bg-clip-text text-transparent group-hover:from-primary/90 group-hover:via-primary group-hover:to-primary/90 transition-all duration-300">
+                          Portfolio
+                        </span>
+                        
+                        {/* Decorative corner elements */}
+                        <div className="absolute top-2 left-2 w-2 h-2 bg-primary/40 rounded-full group-hover:bg-primary/60 transition-colors duration-300"></div>
+                        <div className="absolute top-2 right-2 w-2 h-2 bg-primary/40 rounded-full group-hover:bg-primary/60 transition-colors duration-300"></div>
+                        <div className="absolute bottom-2 left-2 w-2 h-2 bg-primary/40 rounded-full group-hover:bg-primary/60 transition-colors duration-300"></div>
+                        <div className="absolute bottom-2 right-2 w-2 h-2 bg-primary/40 rounded-full group-hover:bg-primary/60 transition-colors duration-300"></div>
+                      </div>
                     </div>
                   </div>
 
@@ -605,9 +620,15 @@ export default function Portfolio() {
                       <p className="text-sm text-muted-foreground">Figma, Canva</p>
                     </Card>
                     <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
-                      <Music className="w-8 h-8 text-primary mb-3" />
+                      <svg className="w-8 h-8 text-primary mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M2 12h20"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                      </svg>
                       <h3 className="font-display font-semibold mb-2 tracking-tight">Etc.</h3>
-                      <p className="text-sm text-muted-foreground">I'm REALLY into music</p>
+                      <p className="text-sm text-muted-foreground">
+                        Music, YouTube, Anime, Movies
+                      </p>
                     </Card>
                   </div>
                 </div>
