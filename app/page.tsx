@@ -49,7 +49,7 @@ const translations = {
     hero: {
       name: "พัชรพล โยริยะ",
       title: "วิศวกรคอมพิวเตอร์",
-      description: "นักพัฒนาซอฟต์แวร์ที่หลงใหลในการสร้างสรรค์เทคโนโลยีที่ทำให้ชีวิตง่ายขึ้น สร้างประสบการณ์ดิจิทัลที่น่าประทับใจ",
+      description: "นักพัฒนาซอฟต์แวร์ชั้นปีที่ 4 มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา มีประสบการณ์ในการพัฒนาเว็บแอปพลิเคชันและระบบซอฟต์แวร์จริงจัง ใส่ใจในรายละเอียด รักการเรียนรู้เทคโนโลยีใหม่ ๆ และมุ่งมั่นสร้างสรรค์ผลงานที่ตอบโจทย์การใช้งานจริง พร้อมเปิดรับโอกาสและความท้าทายใหม่ ๆ ในสายงานไอที",
       cta: "ดูผลงาน",
       downloadCV: "ดาวน์โหลด CV",
       socialLinks: "ติดตามฉันได้ที่",
@@ -117,7 +117,7 @@ const translations = {
       name: "Patcharapon Yoriya",
       title: "Computer Engineer",
       description:
-        "A passionate software developer who loves creating technology that makes life easier and building amazing digital experiences",
+        "A 4th-year software developer at Rajamangala University of Technology Lanna with hands-on experience in web application and software system development. Detail-oriented, passionate about learning new technologies, and dedicated to creating practical solutions. Always open to new opportunities and challenges in the IT field.",
       cta: "View My Work",
       downloadCV: "Download CV",
       socialLinks: "Follow me on",
