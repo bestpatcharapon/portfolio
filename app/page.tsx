@@ -62,16 +62,16 @@ const translations = {
     quickAbout: {
       title: "เกี่ยวกับฉัน",
       subtitle: "ความหลงใหลในการเขียนโค้ด",
-      description: "ฉันเป็นนักพัฒนาซอฟต์แวร์ที่มีประสบการณ์ 3+ ปี ชอบเรียนรู้เทคโนโลยีใหม่ๆ และสร้างสรรค์โซลูชันที่แก้ปัญหาได้จริง",
+      description: "ฉันเป็นนักศึกษาวิศวกรคอมพิวเตอร์ชั้นปีที่ 4 ที่ชอบเรียนรู้เทคโนโลยีใหม่ๆ และสร้างสรรค์โซลูชันที่แก้ปัญหาได้จริง พร้อมเปิดรับโอกาสใหม่ๆ",
       learnMore: "เรียนรู้เพิ่มเติม",
     },
     about: {
       title: "เกี่ยวกับฉัน",
       description:
-        "ฉันเป็นวิศวกรซอฟต์แวร์ที่มีประสบการณ์ในการพัฒนาเว็บแอปพลิเคชันและระบบซอฟต์แวร์ ฉันชอบเรียนรู้เทคโนโลยีใหม่ๆ และแก้ปัญหาที่ซับซ้อน มุ่งมั่นที่จะสร้างโซลูชันที่มีคุณภาพและใช้งานง่าย",
+        "ฉันเป็นนักศึกษาวิศวกรคอมพิวเตอร์ชั้นปีที่ 4 ที่มีความหลงใหลในการพัฒนาเว็บแอปพลิเคชันและระบบซอฟต์แวร์ ฉันชอบเรียนรู้เทคโนโลยีใหม่ๆ และแก้ปัญหาที่ซับซ้อน พร้อมที่จะเปิดรับโอกาสและความท้าทายใหม่ๆ ในสายงานไอที",
       skills: "ทักษะ",
-      experience: "ประสบการณ์",
-      years: "3+ ปี",
+      experience: "พร้อมเรียนรู้",
+      years: "0+ ปี",
     },
     experience: {
       title: "ประสบการณ์และการศึกษา",
@@ -79,7 +79,6 @@ const translations = {
     },
     projects: {
       title: "โปรเจคของฉัน",
-      subtitle: "ผลงานที่ฉันภูมิใจและโปรเจคที่น่าสนใจ",
       viewProject: "ดูโปรเจค",
       viewCode: "ดูโค้ด",
     },
@@ -131,16 +130,16 @@ const translations = {
       title: "About Me",
       subtitle: "Passionate about coding",
       description:
-        "I'm a software developer with 3+ years of experience who loves learning new technologies and creating solutions that solve real problems",
+        "I'm a 4th-year Computer Engineering student who loves learning new technologies and creating solutions that solve real problems, ready to embrace new opportunities",
       learnMore: "Learn More",
     },
     about: {
       title: "About Me",
       description:
-        "I'm a developer with experience in developing web applications and software systems. I enjoy learning new technologies and solving complex problems, committed to creating quality and user-friendly solutions.",
+        "I'm a 4th-year Computer Engineering student passionate about developing web applications and software systems. I enjoy learning new technologies and solving complex problems, ready to embrace new opportunities and challenges in the IT field.",
       skills: "Skills",
-      experience: "Experience",
-      years: "3+ Years",
+      experience: "Ready to Learn",
+      years: "0+ Years",
     },
     experience: {
       title: "Experience & Education",
@@ -604,22 +603,22 @@ export default function Portfolio() {
 
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-6">
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
                       <Monitor className="w-8 h-8 text-primary mb-3" />
                       <h3 className="font-display font-semibold mb-2 tracking-tight">Frontend</h3>
                       <p className="text-sm text-muted-foreground">Node.js, React, Next.js, JavaScript</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
                       <Server className="w-8 h-8 text-primary mb-3" />
                       <h3 className="font-display font-semibold mb-2 tracking-tight">Backend</h3>
                       <p className="text-sm text-muted-foreground">SQL , PostgreSQL , MongoDB</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
                       <Palette className="w-8 h-8 text-primary mb-3" />
                       <h3 className="font-display font-semibold mb-2 tracking-tight">Design</h3>
                       <p className="text-sm text-muted-foreground">Figma, Canva</p>
                     </Card>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg">
+                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
                       <svg className="w-8 h-8 text-primary mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M2 12h20"/>
@@ -661,7 +660,7 @@ export default function Portfolio() {
                 {projects.slice(0, 2).map((project, index) => (
                   <Card
                     key={index}
-                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/30 shadow-lg overflow-hidden"
+                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg overflow-hidden"
                   >
                     <div className="h-1 bg-gradient-to-r from-primary to-primary/60" />
                     {/* Project Image */}
@@ -710,16 +709,16 @@ export default function Portfolio() {
                         {project.tech.length > 3 && <Badge className="text-xs text-foreground">+{project.tech.length - 3}</Badge>}
                       </div>
                       <div className="flex gap-3">
-                        <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
-                          <Link href={project.demo} target="_blank">
-                            <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                        <Button asChild className="flex-1 group/btn bg-white text-gray-900 hover:bg-gray-100 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-200">
+                          <Link href={project.demo} target="_blank" className="flex items-center justify-center">
                             {t.projects.viewProject}
+                            <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
                           </Link>
                         </Button>
-                        <Button asChild className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary h-9 rounded-md px-3">
-                          <Link href={project.github} target="_blank">
-                            <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                        <Button asChild className="flex-1 group/btn bg-black text-white hover:bg-gray-900 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-600">
+                          <Link href={project.github} target="_blank" className="flex items-center justify-center">
                             {t.projects.viewCode}
+                            <Github className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
                           </Link>
                         </Button>
                       </div>
@@ -746,11 +745,11 @@ export default function Portfolio() {
                 <p className="text-lg text-muted-foreground leading-relaxed">{t.about.description}</p>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <Card className="p-6 text-center border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                  <Card className="p-6 text-center border-2 border-border bg-background/50 backdrop-blur-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
                     <div className="text-3xl font-bold text-foreground mb-2">{t.about.years}</div>
                     <div className="text-muted-foreground text-sm">{t.about.experience}</div>
                   </Card>
-                  <Card className="p-6 text-center border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                  <Card className="p-6 text-center border-2 border-border bg-background/50 backdrop-blur-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
                     <div className="text-3xl font-bold text-foreground mb-2">20+</div>
                     <div className="text-muted-foreground text-sm">Projects</div>
                   </Card>
@@ -761,7 +760,7 @@ export default function Portfolio() {
                 <h3 className="font-display text-2xl font-bold mb-4 tracking-tight">{t.about.skills}</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {["Frontend", "Backend", "Mobile", "Database", "DevOps", "Design"].map((skill) => (
-                    <Card key={skill} className="p-4 text-center border border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                    <Card key={skill} className="p-4 text-center border-2 border-border bg-background/50 backdrop-blur-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
                       <div className="text-sm font-medium text-foreground">{skill}</div>
                     </Card>
                   ))}
@@ -784,7 +783,7 @@ export default function Portfolio() {
 
             <div className="space-y-5">
               {experiences.map((exp, index) => (
-                <Card key={index} className="p-6 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm">
+                <Card key={index} className="p-6 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h3 className="font-display font-semibold text-lg tracking-tight">{exp.title}</h3>
@@ -808,7 +807,6 @@ export default function Portfolio() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.projects.title}</h2>
-              <p className="text-base text-muted-foreground mb-6">{t.projects.subtitle}</p>
               <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
@@ -816,7 +814,7 @@ export default function Portfolio() {
               {projects.map((project, index) => (
                 <Card
                   key={index}
-                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/50 bg-background/50 backdrop-blur-sm overflow-hidden"
+                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50 overflow-hidden"
                 >
                   <div className="h-1 bg-primary/50" />
                   {/* Project Image */}
@@ -864,16 +862,16 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <Button className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
-                        <Link href={project.demo} target="_blank">
-                          <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                      <Button className="flex-1 group/btn bg-white text-gray-900 hover:bg-gray-100 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-200">
+                        <Link href={project.demo} target="_blank" className="flex items-center justify-center">
                           {t.projects.viewProject}
+                          <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
                         </Link>
                       </Button>
-                      <Button className="flex-1 group/btn border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary h-9 rounded-md px-3">
-                        <Link href={project.github} target="_blank">
-                          <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                      <Button className="flex-1 group/btn bg-black text-white hover:bg-gray-900 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-600">
+                        <Link href={project.github} target="_blank" className="flex items-center justify-center">
                           {t.projects.viewCode}
+                          <Github className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
                         </Link>
                       </Button>
                     </div>
@@ -899,7 +897,7 @@ export default function Portfolio() {
 
             {/* Contact Info Cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
@@ -907,7 +905,7 @@ export default function Portfolio() {
                 <p className="text-muted-foreground text-sm">patcharaponyo65@gmail.com</p>
               </Card>
 
-              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -915,7 +913,7 @@ export default function Portfolio() {
                 <p className="text-muted-foreground text-sm">+66 80-979-2185</p>
               </Card>
 
-              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm">
+              <Card className="p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
@@ -925,7 +923,7 @@ export default function Portfolio() {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-8 mb-10 border-2 border-border bg-background/50 backdrop-blur-sm">
+            <Card className="p-8 mb-10 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
