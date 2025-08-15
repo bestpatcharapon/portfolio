@@ -48,23 +48,18 @@ const translations = {
     },
     hero: {
       name: "พัชรพล โยริยะ",
-      title: "วิศวกรคอมพิวเตอร์",
-      description: "นักพัฒนาซอฟต์แวร์ชั้นปีที่ 4 มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา มีประสบการณ์ในการพัฒนาเว็บแอปพลิเคชันและระบบซอฟต์แวร์จริงจัง ใส่ใจในรายละเอียด รักการเรียนรู้เทคโนโลยีใหม่ ๆ และมุ่งมั่นสร้างสรรค์ผลงานที่ตอบโจทย์การใช้งานจริง พร้อมเปิดรับโอกาสและความท้าทายใหม่ ๆ ในสายงานไอที",
-      cta: "ดูผลงาน",
+      title: "นักศึกษาฝึกงาน QA/Software Testing",
+      description: "นักศึกษาชั้นปีที่ 4 สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา มีประสบการณ์พัฒนาเว็บแอปพลิเคชันและระบบซอฟต์แวร์จริง ใส่ใจรายละเอียด ชอบเรียนรู้เทคโนโลยีใหม่ ๆ และมุ่งเน้นคุณภาพการใช้งานจริง พร้อมเปิดรับโอกาสและความท้าทายใหม่ ๆ ในสายงานไอที",
+      downloadResume: "ดาวน์โหลด Resume",
       downloadCV: "ดาวน์โหลด CV",
       socialLinks: "ติดตามฉันได้ที่",
     },
     featured: {
-      title: "โปรเจคเด่น",
-      subtitle: "ผลงานล่าสุดที่น่าภูมิใจ",
+      title: "โปรเจค",
+      subtitle: "",
       viewAll: "ดูทั้งหมด",
     },
-    quickAbout: {
-      title: "เกี่ยวกับฉัน",
-      subtitle: "ความหลงใหลในการเขียนโค้ด",
-      description: "ฉันเป็นนักศึกษาวิศวกรคอมพิวเตอร์ชั้นปีที่ 4 ที่ชอบเรียนรู้เทคโนโลยีใหม่ๆ และสร้างสรรค์โซลูชันที่แก้ปัญหาได้จริง พร้อมเปิดรับโอกาสใหม่ๆ",
-      learnMore: "เรียนรู้เพิ่มเติม",
-    },
+
     about: {
       title: "เกี่ยวกับฉัน",
       description:
@@ -84,7 +79,7 @@ const translations = {
     },
     contact: {
       title: "ติดต่อฉัน",
-      subtitle: "พร้อมสำหรับโอกาสใหม่ๆ",
+      subtitle: "",
       description: "หากคุณสนใจที่จะทำงานร่วมกันหรือมีคำถาม อย่าลังเลที่จะติดต่อมา",
       email: "อีเมล",
       phone: "โทรศัพท์",
@@ -114,25 +109,19 @@ const translations = {
     },
     hero: {
       name: "Patcharapon Yoriya",
-      title: "Computer Engineer",
+      title: "QA/Software Testing Intern",
       description:
-        "A 4th-year software developer at Rajamangala University of Technology Lanna with hands-on experience in web application and software system development. Detail-oriented, passionate about learning new technologies, and dedicated to creating practical solutions. Always open to new opportunities and challenges in the IT field.",
-      cta: "View My Work",
+        "A 4th-year Computer Engineering student at Rajamangala University of Technology Lanna with hands-on experience in web application and software system development. Detail-oriented, passionate about learning new technologies, and focused on real-world quality assurance. Always open to new opportunities and challenges in the IT field.",
+      downloadResume: "Download Resume",
       downloadCV: "Download CV",
       socialLinks: "Follow me on",
     },
     featured: {
-      title: "Featured Projects",
-      subtitle: "Latest work I'm proud of",
+      title: "Projects",
+      subtitle: "",
       viewAll: "View All",
     },
-    quickAbout: {
-      title: "About Me",
-      subtitle: "Passionate about coding",
-      description:
-        "I'm a 4th-year Computer Engineering student who loves learning new technologies and creating solutions that solve real problems, ready to embrace new opportunities",
-      learnMore: "Learn More",
-    },
+
     about: {
       title: "About Me",
       description:
@@ -153,7 +142,7 @@ const translations = {
     },
     contact: {
       title: "Contact Me",
-      subtitle: "Ready for new opportunities",
+      subtitle: "",
       description: "If you're interested in working together or have any questions, don't hesitate to reach out.",
       email: "Email",
       phone: "Phone",
@@ -200,16 +189,18 @@ const projects = [
     image: "/shabu.png",
   },
   {
-    title: "Task Management App",
-    titleTh: "แอปจัดการงาน",
+    title: "Agent Wallboard & Notification",
+    titleTh: "ระบบ Agent Wallboard และการแจ้งเตือน",
     description:
-      "A collaborative task management application with real-time updates, team collaboration, and progress tracking",
-    descriptionTh: "แอปพลิเคชันจัดการงานแบบร่วมมือกันพร้อมอัปเดตแบบเรียลไทม์ การทำงานเป็นทีม และติดตามความคืบหน้า",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    icon: <Code className="w-6 h-6" />,
-    gradient: "from-green-500 to-teal-600",
+      "ENGCE301 class project: a web dashboard that displays agent login/logout history, status changes, and message logs with simple APIs.",
+    descriptionTh:
+      "โปรเจกต์รายวิชา Sofeware Engineer: แดชบอร์ดแสดงประวัติการเข้า-ออกของ Agent การเปลี่ยนสถานะ และประวัติการสนทนา พร้อม API พื้นฐานมีTest-case",
+    tech: ["JavaScript", "Node.js", "Express", "HTML", "CSS", "REST API"],
+    github: "https://github.com/bestpatcharapon/engce301-termProject-Team03",
+    demo: "https://github.com/bestpatcharapon/engce301-termProject-Team03",
+    icon: <Monitor className="w-6 h-6" />,
+    gradient: "from-blue-500 to-indigo-600",
+    image: "https://img5.pic.in.th/file/secure-sv1/Activity-Flow-Diagram.png",
   },
   {
     title: "Mobile App",
@@ -235,33 +226,40 @@ const projects = [
     icon: <Database className="w-6 h-6" />,
     gradient: "from-orange-500 to-red-600",
   },
+  {
+    title: "Task Management App",
+    titleTh: "แอปจัดการงาน",
+    description:
+      "A collaborative task management application with real-time updates, team collaboration, and progress tracking",
+    descriptionTh: "แอปพลิเคชันจัดการงานแบบร่วมมือกันพร้อมอัปเดตแบบเรียลไทม์ การทำงานเป็นทีม และติดตามความคืบหน้า",
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
+    github: "https://github.com",
+    demo: "https://demo.com",
+    icon: <Code className="w-6 h-6" />,
+    gradient: "from-green-500 to-teal-600",
+  },
 ]
 
 const experiences = [
   {
-    title: "Senior Software Engineer",
-    company: "Tech Company",
+    title: "Computer Engineering Student",
+    company: "Rajamangala University of Technology Lanna",
     period: "2022 - Present",
-    description: "Leading development of web applications and mentoring junior developers",
+    description: "Studying core computer engineering and software development subjects while building small projects to practice."
   },
   {
-    title: "Full Stack Developer",
-    company: "Startup",
-    period: "2020 - 2022",
-    description: "Built and maintained multiple web applications using modern technologies",
-  },
-  {
-    title: "Junior Developer",
-    company: "Digital Agency",
-    period: "2019 - 2020",
-    description: "Developed responsive websites and collaborated with design teams",
-  },
+    title: "Self‑Learning & Personal Projects",
+    company: "Independent",
+    period: "2023 - Present",
+    description: "Practicing web development (HTML, CSS, JavaScript, React/Next.js) and backend basics, creating small apps and coursework projects."
+  }
 ]
 
 export default function Portfolio() {
   const [isDark, setIsDark] = useState(false)
   const [language, setLanguage] = useState<"th" | "en">("th")
   const [activeSection, setActiveSection] = useState("home")
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const [mounted, setMounted] = useState(false)
   
   // Contact form states
@@ -304,6 +302,18 @@ export default function Portfolio() {
 
   const toggleLanguage = () => {
     setLanguage(language === "th" ? "en" : "th")
+  }
+
+  const handleSectionChange = (section: string) => {
+    if (section === activeSection) return
+    
+    setIsTransitioning(true)
+    
+    // Small delay for smooth transition
+    setTimeout(() => {
+      setActiveSection(section)
+      setIsTransitioning(false)
+    }, 200)
   }
 
   // Handle form input changes
@@ -352,72 +362,48 @@ export default function Portfolio() {
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b z-50 transition-all duration-300">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <button 
-              onClick={() => setActiveSection("home")}
-              className="flex items-center space-x-2 hover:scale-105 transition-all duration-200 cursor-pointer group"
-            >
-              <div className="px-2 py-1 bg-primary rounded-lg transition-all duration-200">
-                <span className="font-bold text-sm text-primary-foreground">
-                  {t.brand.logo}
-                </span>
-              </div>
-              <div className="font-display font-bold text-2xl text-foreground tracking-tight transition-all duration-200">
-                {t.brand.title}
-              </div>
-            </button>
-
-            <div className="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
+            <div className="flex-1"></div>
+            
+            {/* Navigation Menu - Minimal */}
+            <div className="flex items-center space-x-0 bg-background/80 backdrop-blur-md rounded-full px-2 py-1 border border-border/10 shadow-sm">
               {Object.entries(t.nav).map(([key, value]) => (
                 <button
                   key={key}
-                  onClick={() => setActiveSection(key)}
-                  className={`transition-all duration-300 hover:text-primary relative ${
-                    activeSection === key ? "text-primary font-medium" : "text-muted-foreground"
+                  onClick={() => handleSectionChange(key)}
+                  className={`transition-all duration-300 px-5 py-2 rounded-full text-sm font-medium ${
+                    activeSection === key 
+                      ? "bg-foreground text-background" 
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {value}
-                  {activeSection === key && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full transition-all duration-300" />
-                  )}
                 </button>
               ))}
             </div>
 
-            <div className="flex items-center space-x-4">
-              <Button
+            {/* Action Buttons - Minimal */}
+            <div className="flex items-center space-x-1 flex-1 justify-end">
+              <button
                 onClick={toggleLanguage}
-                className="hidden sm:flex border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium h-9 rounded-md px-3"
+                className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
               >
-                {language === "th" ? "EN" : "TH"}
-              </Button>
-              <Button
+                <span className="text-xs font-medium">{language === "th" ? "EN" : "TH"}</span>
+              </button>
+              
+              <button
                 onClick={toggleTheme}
-                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium h-9 rounded-md px-3"
+                className="flex items-center justify-center w-7 h-7 rounded-full text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
               >
-                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              </Button>
+                {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+              </button>
 
-              {/* GitHub Button */}
-              <Button
-                asChild
-                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium h-9 rounded-md px-3"
+              <Link 
+                href="https://github.com/bestpatcharapon" 
+                target="_blank"
+                className="flex items-center justify-center w-7 h-7 rounded-full text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
               >
-                <Link href="https://github.com/bestpatcharapon" target="_blank">
-                  <Github className="w-4 h-4" />
+                <Github className="w-3.5 h-3.5" />
                 </Link>
-              </Button>
-
-              {/* Invite Button */}
-              <Button
-                onClick={() => setActiveSection("contact")}
-                className="border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium flex items-center gap-2 h-9 rounded-md px-3"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                {language === "th" ? "ชักชวน" : "Invite"}
-              </Button>
             </div>
           </div>
         </div>
@@ -425,7 +411,7 @@ export default function Portfolio() {
 
       {/* Main Content */}
       {activeSection === "home" && (
-        <div className="space-y-0">
+        <div className={`space-y-0 ${isTransitioning ? 'page-exit' : 'page-enter'}`}>
           {/* Main Hero */}
           <section className="pt-20 pb-6 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             <div className="max-w-7xl mx-auto relative z-10">
@@ -482,11 +468,13 @@ export default function Portfolio() {
 
                   {/* Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
-                    <Button onClick={() => setActiveSection("projects")} className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-0 font-medium text-base h-11 rounded-md px-8">
-                      {t.hero.cta}
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <Button className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium text-base h-11 rounded-md px-8" asChild>
+                      <a href="/resume.pdf" download target="_blank">
+                        <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                        {t.hero.downloadResume}
+                      </a>
                     </Button>
-                    <Button className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium text-base h-11 rounded-md px-8" asChild>
+                    <Button className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-medium text-base h-11 rounded-md px-8" asChild>
                       <a href="/cv.pdf" download target="_blank">
                         <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                         {t.hero.downloadCV}
@@ -558,6 +546,16 @@ export default function Portfolio() {
                     
                     {/* Border Glow */}
                     <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/30 transition-all duration-500"></div>
+                    
+                    {/* Hover Info Overlay - Modern Style */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl">
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <div className="text-white">
+                          <h3 className="text-lg font-semibold mb-1 tracking-tight">Patcharapon Yoriya</h3>
+                          <p className="text-sm text-white/80 font-medium">QA/Software Testing Intern</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
                   {/* Decorative Lines */}
@@ -568,87 +566,22 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* Section Divider */}
-          <div className="relative h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-6 lg:mx-8">
-          </div>
 
-          {/* Quick About Section */}
-          <section className="py-12 px-4 sm:px-6 lg:px-8 relative">
-            {/* Minimal Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background-secondary/20 to-background" />
-            
-            <div className="max-w-6xl mx-auto relative z-10">
-              <div className="grid lg:grid-cols-2 gap-6 items-center">
-                <div className="space-y-3">
-                  <div>
-                    <h2 className="font-display text-2xl lg:text-3xl font-bold mb-1 tracking-tight">{t.quickAbout.title}</h2>
-                    <p className="text-lg text-primary font-medium mb-2">{t.quickAbout.subtitle}</p>
-                    <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mb-3" />
-                  </div>
-                  <p className="text-base text-muted-foreground leading-relaxed">{t.quickAbout.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {["React", "Next.js", "JavaScript", "Node.js", "Python"].map((tech) => (
-                      <Badge key={tech} className="px-2 py-1 text-xs border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <Button onClick={() => setActiveSection("about")} className="group text-sm">
-                    {t.quickAbout.learnMore}
-                    <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-
-                <div className="relative">
-                  <div className="grid grid-cols-2 gap-6">
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
-                      <Monitor className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">Frontend</h3>
-                      <p className="text-sm text-muted-foreground">Node.js, React, Next.js, JavaScript</p>
-                    </Card>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
-                      <Server className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">Backend</h3>
-                      <p className="text-sm text-muted-foreground">SQL , PostgreSQL , MongoDB</p>
-                    </Card>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
-                      <Palette className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">Design</h3>
-                      <p className="text-sm text-muted-foreground">Figma, Canva</p>
-                    </Card>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg">
-                      <svg className="w-8 h-8 text-primary mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M2 12h20"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                      </svg>
-                      <h3 className="font-display font-semibold mb-2 tracking-tight">Etc.</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Music, YouTube, Anime, Movies
-                      </p>
-                    </Card>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* Section Divider */}
           <div className="relative h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-6 lg:mx-8">
           </div>
 
-          {/* Featured Projects */}
+          {/* Featured Projects Carousel */}
           <section className="py-12 px-4 sm:px-6 lg:px-8 relative">
             {/* Minimal Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-background to-background-secondary/20" />
             
             <div className="max-w-6xl mx-auto relative z-10">
-              <div className="flex justify-between items-center mb-4">
+              <div className="flex justify-between items-center mb-8">
                 <div>
-                  <h2 className="font-display text-2xl lg:text-3xl font-bold mb-1 tracking-tight">{t.featured.title}</h2>
-                  <p className="text-base text-muted-foreground">{t.featured.subtitle}</p>
+                  <h2 className="font-display text-2xl lg:text-3xl font-bold tracking-tight">{t.featured.title}</h2>
+                  {t.featured.subtitle && <p className="text-base text-muted-foreground mt-1">{t.featured.subtitle}</p>}
                 </div>
                 <Button onClick={() => setActiveSection("projects")} className="group border-2 border-border bg-background text-foreground hover:bg-accent hover:border-primary hover:shadow-lg transition-all duration-200 font-medium text-sm">
                   {t.featured.viewAll}
@@ -656,16 +589,23 @@ export default function Portfolio() {
                 </Button>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                {projects.slice(0, 2).map((project, index) => (
+              {/* Auto-scrolling Carousel */}
+              <div className="relative overflow-hidden rounded-xl">
+                <div className="flex animate-scroll-infinite gap-6" style={{
+                  width: `${projects.length * 400}px`,
+                  animation: 'scroll-infinite 30s linear infinite'
+                }}>
+                  {/* Duplicate projects for seamless loop */}
+                  {[...projects, ...projects].map((project, index) => (
                   <Card
-                    key={index}
-                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg overflow-hidden"
+                      key={`${project.title}-${index}`}
+                      className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background hover:border-primary/50 shadow-lg overflow-hidden flex-shrink-0"
+                      style={{ width: '380px' }}
                   >
                     <div className="h-1 bg-gradient-to-r from-primary to-primary/60" />
                     {/* Project Image */}
                     {project.image && (
-                      <div className="relative h-64 bg-gradient-to-br from-muted/10 to-muted/5 overflow-hidden">
+                        <div className="relative h-48 bg-gradient-to-br from-muted/10 to-muted/5 overflow-hidden">
                         <Image
                           src={project.image}
                           alt={language === "th" ? project.titleTh : project.title}
@@ -676,28 +616,30 @@ export default function Portfolio() {
                         />
                         <div className="absolute top-3 right-3 flex gap-2">
                           {project.tech.slice(0, 2).map((tech) => (
-                            <Badge key={tech} className="text-xs bg-background/80 text-foreground border-border backdrop-blur-sm text-foreground">
+                              <Badge key={tech} className="text-xs bg-background/90 text-foreground border-border backdrop-blur-sm">
                               {tech}
                             </Badge>
                           ))}
                         </div>
                       </div>
                     )}
-                    <CardHeader className="pb-4">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <CardHeader className="pb-3 px-4 pt-4">
+                        <div className="flex items-start gap-3 mb-3">
+                          <div className="p-2 rounded-lg bg-primary/10 text-primary flex-shrink-0">
                           {project.icon}
                         </div>
-                        <CardTitle className="font-display text-xl group-hover:text-primary transition-colors tracking-tight">
+                          <div className="flex-1 min-w-0">
+                            <CardTitle className="font-display text-lg font-bold text-foreground transition-colors tracking-tight leading-tight mb-1">
                           {language === "th" ? project.titleTh : project.title}
                         </CardTitle>
                       </div>
-                      <CardDescription className="text-base leading-relaxed">
+                        </div>
+                        <CardDescription className="text-sm leading-relaxed line-clamp-3 text-muted-foreground">
                         {language === "th" ? project.descriptionTh : project.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="pt-0">
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <CardContent className="pt-0 px-4 pb-4">
+                        <div className="flex flex-wrap gap-1 mb-4">
                         {project.tech.slice(0, 3).map((tech) => (
                           <Badge
                             key={tech}
@@ -706,25 +648,30 @@ export default function Portfolio() {
                             {tech}
                           </Badge>
                         ))}
-                        {project.tech.length > 3 && <Badge className="text-xs text-foreground">+{project.tech.length - 3}</Badge>}
+                        {project.tech.length > 3 && (
+                            <Badge className="text-xs border-transparent bg-secondary text-secondary-foreground">
+                            +{project.tech.length - 3}
+                          </Badge>
+                        )}
                       </div>
-                      <div className="flex gap-3">
-                        <Button asChild className="flex-1 group/btn bg-white text-gray-900 hover:bg-gray-100 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-200">
+                        <div className="flex gap-2">
+                          <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
                           <Link href={project.demo} target="_blank" className="flex items-center justify-center">
                             {t.projects.viewProject}
-                            <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
+                              <ExternalLink className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
                           </Link>
                         </Button>
-                        <Button asChild className="flex-1 group/btn bg-black text-white hover:bg-gray-900 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-600">
+                          <Button asChild className="flex-1 group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
                           <Link href={project.github} target="_blank" className="flex items-center justify-center">
                             {t.projects.viewCode}
-                            <Github className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
+                              <Github className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
                           </Link>
                         </Button>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
+                </div>
               </div>
             </div>
           </section>
@@ -733,37 +680,87 @@ export default function Portfolio() {
 
       {/* About Section */}
       {activeSection === "about" && (
-        <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+        <section className={`pt-28 pb-16 px-4 sm:px-6 lg:px-8 ${isTransitioning ? 'page-exit' : 'page-enter'}`}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.about.title}</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
+            {/* About Description */}
+            <div className="max-w-3xl mx-auto text-center mb-16">
                 <p className="text-lg text-muted-foreground leading-relaxed">{t.about.description}</p>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <Card className="p-6 text-center border-2 border-border bg-background/50 backdrop-blur-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
-                    <div className="text-3xl font-bold text-foreground mb-2">{t.about.years}</div>
-                    <div className="text-muted-foreground text-sm">{t.about.experience}</div>
-                  </Card>
-                  <Card className="p-6 text-center border-2 border-border bg-background/50 backdrop-blur-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
-                    <div className="text-3xl font-bold text-foreground mb-2">20+</div>
-                    <div className="text-muted-foreground text-sm">Projects</div>
-                  </Card>
+
+
+            {/* Skills Section */}
+            <div className="space-y-8">
+              <h3 className="font-display text-2xl font-bold text-center tracking-tight">{t.about.skills}</h3>
+              
+              {/* Skills Grid - 2x2 Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                      </svg>
+                </div>
+                    <h4 className="font-semibold text-foreground">Frontend</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">React, Next.js, JavaScript, HTML, CSS</p>
+              </div>
+
+                <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"/>
+                      </svg>
+                </div>
+                    <h4 className="font-semibold text-foreground">Backend</h4>
+              </div>
+                  <p className="text-sm text-muted-foreground">Node.js, Python, SQL, MongoDB</p>
+                </div>
+
+                <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                    </div>
+                    <h4 className="font-semibold text-foreground">QA/Testing</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Manual Testing, Test Cases, Bug Reports</p>
+                </div>
+
+                <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-pink-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <h4 className="font-semibold text-foreground">Tools</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Git, VS Code, Figma, Postman</p>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <h3 className="font-display text-2xl font-bold mb-4 tracking-tight">{t.about.skills}</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {["Frontend", "Backend", "Mobile", "Database", "DevOps", "Design"].map((skill) => (
-                    <Card key={skill} className="p-4 text-center border-2 border-border bg-background/50 backdrop-blur-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
-                      <div className="text-sm font-medium text-foreground">{skill}</div>
-                    </Card>
-                  ))}
+              {/* Learning Section */}
+              <div className="max-w-2xl mx-auto">
+                <div className="p-6 rounded-xl bg-gradient-to-r from-primary/5 via-primary/3 to-transparent border border-primary/20">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                    <h4 className="font-semibold text-foreground">Currently Learning</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Automation Testing, API Testing, Performance Testing</p>
                 </div>
               </div>
             </div>
@@ -773,7 +770,7 @@ export default function Portfolio() {
 
       {/* Experience Section */}
       {activeSection === "about" && (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background">
+        <section className={`py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background ${isTransitioning ? 'page-exit' : 'page-enter'}`}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.experience.title}</h2>
@@ -803,7 +800,7 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       {activeSection === "projects" && (
-        <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+        <section className={`pt-28 pb-16 px-4 sm:px-6 lg:px-8 ${isTransitioning ? 'page-exit' : 'page-enter'}`}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.projects.title}</h2>
@@ -862,13 +859,13 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <Button className="flex-1 group/btn bg-white text-gray-900 hover:bg-gray-100 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-200">
+                      <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium">
                         <Link href={project.demo} target="_blank" className="flex items-center justify-center">
                           {t.projects.viewProject}
                           <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
                         </Link>
                       </Button>
-                      <Button className="flex-1 group/btn bg-black text-white hover:bg-gray-900 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium border-2 border-gray-600">
+                      <Button asChild className="flex-1 group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium">
                         <Link href={project.github} target="_blank" className="flex items-center justify-center">
                           {t.projects.viewCode}
                           <Github className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
@@ -885,7 +882,7 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       {activeSection === "contact" && (
-        <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+        <section className={`pt-28 pb-16 px-4 sm:px-6 lg:px-8 ${isTransitioning ? 'page-exit' : 'page-enter'}`}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{t.contact.title}</h2>
