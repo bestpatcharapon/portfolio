@@ -202,42 +202,6 @@ const projects = [
     gradient: "from-blue-500 to-indigo-600",
     image: "https://img5.pic.in.th/file/secure-sv1/Activity-Flow-Diagram.png",
   },
-  {
-    title: "Mobile App",
-    titleTh: "แอปมือถือ",
-    description:
-      "A cross-platform mobile application with offline capabilities, push notifications, and native performance",
-    descriptionTh: "แอปพลิเคชันมือถือข้ามแพลตฟอร์มพร้อมความสามารถออฟไลน์ การแจ้งเตือนแบบพุช และประสิทธิภาพแบบเนทีฟ",
-    tech: ["React Native", "Expo", "Firebase", "Redux Toolkit", "AsyncStorage"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    icon: <Smartphone className="w-6 h-6" />,
-    gradient: "from-purple-500 to-pink-600",
-  },
-  {
-    title: "Data Analytics Dashboard",
-    titleTh: "แดชบอร์ดวิเคราะห์ข้อมูล",
-    description:
-      "A comprehensive data visualization platform with real-time charts, interactive filters, and export capabilities",
-    descriptionTh: "แพลตฟอร์มการแสดงผลข้อมูลแบบครบวงจรพร้อมกราฟแบบเรียลไทม์ ตัวกรองแบบโต้ตอบ และความสามารถในการส่งออก",
-    tech: ["Vue.js", "D3.js", "Python", "FastAPI", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    icon: <Database className="w-6 h-6" />,
-    gradient: "from-orange-500 to-red-600",
-  },
-  {
-    title: "Task Management App",
-    titleTh: "แอปจัดการงาน",
-    description:
-      "A collaborative task management application with real-time updates, team collaboration, and progress tracking",
-    descriptionTh: "แอปพลิเคชันจัดการงานแบบร่วมมือกันพร้อมอัปเดตแบบเรียลไทม์ การทำงานเป็นทีม และติดตามความคืบหน้า",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    icon: <Code className="w-6 h-6" />,
-    gradient: "from-green-500 to-teal-600",
-  },
 ]
 
 const experiences = [
@@ -666,18 +630,18 @@ export default function Portfolio() {
                       </div>
                         <div className="flex gap-2">
                           <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
-                          <Link href={project.demo} target="_blank" className="flex items-center justify-center">
-                            {t.projects.viewProject}
+                            <Link href={project.demo} target="_blank" className="flex items-center justify-center">
+                              {t.projects.viewProject}
                               <ExternalLink className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
-                          </Link>
-                        </Button>
+                            </Link>
+                          </Button>
                           <Button asChild className="flex-1 group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
-                          <Link href={project.github} target="_blank" className="flex items-center justify-center">
-                            {t.projects.viewCode}
+                            <Link href={project.github} target="_blank" className="flex items-center justify-center">
+                              {t.projects.viewCode}
                               <Github className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
-                          </Link>
-                        </Button>
-                      </div>
+                            </Link>
+                          </Button>
+                        </div>
                     </CardContent>
                   </Card>
                 ))}
