@@ -67,6 +67,9 @@ const translations = {
       skills: "ทักษะ",
       experience: "พร้อมเรียนรู้",
       years: "0+ ปี",
+      education: "การศึกษา",
+      languages: "ภาษา",
+      introduction: "แนะนำตัว",
     },
     experience: {
       title: "ประสบการณ์และการศึกษา",
@@ -129,6 +132,9 @@ const translations = {
       skills: "Skills",
       experience: "Ready to Learn",
       years: "0+ Years",
+      education: "Education",
+      languages: "Languages",
+      introduction: "Introduction",
     },
     experience: {
       title: "Experience & Education",
@@ -206,17 +212,59 @@ const projects = [
 
 const experiences = [
   {
-    title: "Computer Engineering Student",
-    company: "Rajamangala University of Technology Lanna",
-    period: "2022 - Present",
-    description: "Studying core computer engineering and software development subjects while building small projects to practice."
+    title: "STEM Project - Product Exercise Watch",
+    company: "Suan Boonyopatham Lamphun School",
+    period: "2019 - 2022",
+    description: "Conducted user testing with 10-day trials for office workers at risk of office syndrome. Developed prototype using block-based programming and Arduino with M5Stack web interface."
   },
   {
-    title: "Self‑Learning & Personal Projects",
-    company: "Independent",
-    period: "2023 - Present",
-    description: "Practicing web development (HTML, CSS, JavaScript, React/Next.js) and backend basics, creating small apps and coursework projects."
+    title: "Final Project - Human Detection System with Edge Computing",
+    company: "Rajamangala University of Technology Lanna",
+    period: "2020 - 2025",
+    description: "Developed intrusion detection system using ESP32-CAM and AI for restricted areas. Created web-based dashboard for real-time monitoring and alerts using React and PostgreSQL."
+  },
+  {
+    title: "Sub Project - Food Ordering Website for Shabu Restaurant",
+    company: "Independent Project",
+    period: "2024 Q1-Q2",
+    description: "Designed UX/UI for food ordering system using PHP and SQL. Role focused on user experience and interface design."
+  },
+  {
+    title: "Sub Project - Portfolio Website",
+    company: "Independent Project",
+    period: "2025 - Present",
+    description: "Currently developing portfolio website using React, Next.js, Tailwind CSS, and TypeScript. Focus on modern design and responsive layout."
   }
+]
+
+const education = [
+  {
+    degree: "HIGH SCHOOL DIPLOMA",
+    school: "Suan Boonyopatham Lamphun School",
+    program: "Science-Mathematics Program (STEM)",
+    period: "2019 - 2022",
+    gpa: "3.92"
+  },
+  {
+    degree: "BACHELOR OF COMPUTER ENGINEERING",
+    school: "Rajamangala University of Technology Lanna Chiang Mai",
+    program: "Undergraduate Program",
+    period: "2022 - Present",
+    gpa: "3.29"
+  }
+]
+
+const skills = {
+  frontend: ["HTML/CSS - Basic", "JavaScript - Basic", "Next.js - Basic", "TypeScript - Basic", "React - Basic"],
+  backend: ["PHP - Basic", "Node.js - Basic"],
+  database: ["MySQL - Basic", "PostgreSQL - Basic", "MongoDB - Basic"],
+  machineLearning: ["Python - Basic"],
+  others: ["Git", "Postman", "Canva", "Capcut", "Adobe", "Microsoft Tools"]
+}
+
+const languages = [
+  { name: "English", level: "Basic daily life communication" },
+  { name: "Thai", level: "Native" }
 ]
 
 export default function Portfolio() {
@@ -661,81 +709,208 @@ export default function Portfolio() {
               <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full" />
             </div>
 
-            {/* About Description */}
-            <div className="max-w-3xl mx-auto text-center mb-16">
-                <p className="text-lg text-muted-foreground leading-relaxed">{t.about.description}</p>
+            {/* Introduction */}
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <h3 className="font-display text-xl font-semibold mb-4 tracking-tight">{t.about.introduction}</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "th" 
+                  ? "นักศึกษาฝึกงาน QA/Software Testing ที่มีพื้นฐานด้านวิศวกรรมคอมพิวเตอร์ มีประสบการณ์ในการออกแบบ test case การทดสอบแบบ black-box และการรายงานข้อบกพร่อง คุ้นเคยกับการทดสอบเว็บ/UI และ API (Postman, Selenium/Playwright) SQL พื้นฐาน และการทำงานเป็นทีมแบบ Agile มีแรงขับเคลื่อนที่แข็งแกร่งในการยกระดับคุณภาพซอฟต์แวร์และขยายทักษะในการทดสอบแบบอัตโนมัติ"
+                  : "QA/Software Testing Intern candidate with a foundation in Computer Engineering, experienced in test case design, black-box testing, and defect reporting. Familiar with web/UI and API testing (Postman, Selenium/Playwright), basic SQL, and Agile teamwork, with a strong drive to enhance software quality and expand skills in automation testing."
+                }
+              </p>
             </div>
 
-
+            {/* Education Section */}
+            <div className="mb-16">
+              <h3 className="font-display text-2xl font-bold text-center mb-8 tracking-tight">{t.about.education}</h3>
+              <div className="max-w-4xl mx-auto space-y-6">
+                {education.map((edu, index) => (
+                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                      <div className="flex-1">
+                        <h4 className="font-display font-bold text-lg tracking-tight text-primary mb-2">{edu.degree}</h4>
+                        <p className="font-medium text-foreground mb-1">{edu.school}</p>
+                        <p className="text-muted-foreground text-sm">{edu.program}</p>
+                      </div>
+                      <div className="flex flex-col items-end gap-2">
+                        <Badge className="text-xs bg-primary/10 text-primary border-primary/20">
+                          {edu.period}
+                        </Badge>
+                        <div className="text-right">
+                          <span className="text-sm text-muted-foreground">GPA:</span>
+                          <span className="ml-2 font-bold text-lg text-primary">{edu.gpa}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
 
             {/* Skills Section */}
-            <div className="space-y-8">
-              <h3 className="font-display text-2xl font-bold text-center tracking-tight">{t.about.skills}</h3>
+            <div className="mb-16">
+              <h3 className="font-display text-2xl font-bold text-center mb-8 tracking-tight">{t.about.skills}</h3>
               
-              {/* Skills Grid - 2x2 Layout */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* Skills Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
                       <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                       </svg>
-                </div>
+                    </div>
                     <h4 className="font-semibold text-foreground">Frontend</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground">React, Next.js, JavaScript, HTML, CSS</p>
-              </div>
+                  <div className="space-y-2">
+                    {skills.frontend.map((skill, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-500/40 rounded-full"></div>
+                        <span className="text-sm text-muted-foreground">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
                       <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"/>
                       </svg>
-                </div>
+                    </div>
                     <h4 className="font-semibold text-foreground">Backend</h4>
-              </div>
-                  <p className="text-sm text-muted-foreground">Node.js, Python, SQL, MongoDB</p>
+                  </div>
+                  <div className="space-y-2">
+                    {skills.backend.map((skill, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500/40 rounded-full"></div>
+                        <span className="text-sm text-muted-foreground">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
                       <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                      </svg>
+                    </div>
+                    <h4 className="font-semibold text-foreground">Database</h4>
+                  </div>
+                  <div className="space-y-2">
+                    {skills.database.map((skill, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-500/40 rounded-full"></div>
+                        <span className="text-sm text-muted-foreground">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
                     </div>
-                    <h4 className="font-semibold text-foreground">QA/Testing</h4>
+                    <h4 className="font-semibold text-foreground">Machine Learning</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground">Manual Testing, Test Cases, Bug Reports</p>
+                  <div className="space-y-2">
+                    {skills.machineLearning.map((skill, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-orange-500/40 rounded-full"></div>
+                        <span className="text-sm text-muted-foreground">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
                       <svg className="w-5 h-5 text-pink-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
                     </div>
-                    <h4 className="font-semibold text-foreground">Tools</h4>
+                    <h4 className="font-semibold text-foreground">Tools & Others</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground">Git, VS Code, Figma, Postman</p>
+                  <div className="space-y-2">
+                    {skills.others.map((skill, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-pink-500/40 rounded-full"></div>
+                        <span className="text-sm text-muted-foreground">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Learning Section */}
-              <div className="max-w-2xl mx-auto">
-                <div className="p-6 rounded-xl bg-gradient-to-r from-primary/5 via-primary/3 to-transparent border border-primary/20">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                <div className="group p-6 rounded-xl border border-border/50 bg-gradient-to-br from-background to-muted/20 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
                     </div>
-                    <h4 className="font-semibold text-foreground">Currently Learning</h4>
+                    <h4 className="font-semibold text-foreground">QA/Testing</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground">Automation Testing, API Testing, Performance Testing</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-indigo-500/40 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">Manual Testing</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-indigo-500/40 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">Test Case Design</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-indigo-500/40 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">Black-box Testing</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-indigo-500/40 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">Defect Reporting</span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Languages Section */}
+            <div className="mb-16">
+              <h3 className="font-display text-2xl font-bold text-center mb-8 tracking-tight">{t.about.languages}</h3>
+              <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                {languages.map((lang, index) => (
+                  <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
+                    <h4 className="font-display font-semibold text-lg mb-2 tracking-tight">{lang.name}</h4>
+                    <p className="text-muted-foreground text-sm">{lang.level}</p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Learning Section */}
+            <div className="max-w-2xl mx-auto">
+              <div className="p-6 rounded-xl bg-gradient-to-r from-primary/5 via-primary/3 to-transparent border border-primary/20">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-semibold text-foreground">
+                    {language === "th" ? "กำลังเรียนรู้" : "Currently Learning"}
+                  </h4>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {language === "th" 
+                    ? "การทดสอบแบบอัตโนมัติ การทดสอบ API การทดสอบประสิทธิภาพ และการขยายทักษะในด้านการทดสอบซอฟต์แวร์"
+                    : "Automation Testing, API Testing, Performance Testing, and expanding software testing skills"
+                  }
+                </p>
               </div>
             </div>
           </div>
@@ -752,19 +927,19 @@ export default function Portfolio() {
               <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <Card key={index} className="p-6 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <h3 className="font-display font-semibold text-lg tracking-tight">{exp.title}</h3>
-                      <p className="text-primary font-medium">{exp.company}</p>
+                <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-border bg-background/50 backdrop-blur-sm hover:border-primary/50">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div className="flex-1">
+                      <h3 className="font-display font-semibold text-lg tracking-tight text-primary mb-2">{exp.title}</h3>
+                      <p className="font-medium text-foreground mb-1">{exp.company}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
                     </div>
-                    <Badge className="text-xs">
+                    <Badge className="text-xs bg-primary/10 text-primary border-primary/20 self-start">
                       {exp.period}
                     </Badge>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
                 </Card>
               ))}
             </div>
