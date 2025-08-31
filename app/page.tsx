@@ -182,6 +182,19 @@ const projects = [
     image: "/human-detection-dashboard.png",
   },
   {
+    title: "Smart Pet Feeder System",
+    titleTh: "ระบบให้อาหารสัตว์เลี้ยงอัจฉริยะ",
+    description:
+      "An automated pet feeding system with weight-based portion control, real-time monitoring, and web interface. Features include customizable meal sizes, feeding schedules, low food alerts, and remote control via web browser.",
+    descriptionTh: "ระบบให้อาหารสัตว์เลี้ยงอัตโนมัติที่ควบคุมปริมาณอาหารตามน้ำหนัก การติดตามแบบเรียลไทม์ และอินเตอร์เฟสเว็บ ประกอบด้วยการกำหนดขนาดมื้ออาหารที่ปรับได้ กำหนดเวลาการให้อาหาร การแจ้งเตือนอาหารหมด และการควบคุมระยะไกลผ่านเว็บเบราว์เซอร์",
+    tech: ["Arduino", "ESP32", "Load Cell", "Web Interface", "HTML/CSS", "JavaScript", "IoT"],
+    github: "https://github.com/bestpatcharapon/PetFeeder",
+    demo: "https://github.com/bestpatcharapon/PetFeeder",
+    icon: <Smartphone className="w-6 h-6" />,
+    gradient: "from-purple-500 to-pink-600",
+    image: "/pet.png",
+  },
+  {
     title: "Shabu Restaurant Management System",
     titleTh: "ระบบจัดการร้านชาบู",
     description:
@@ -677,18 +690,28 @@ export default function Portfolio() {
                         )}
                       </div>
                         <div className="flex gap-2">
-                          <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
-                            <Link href={project.demo} target="_blank" className="flex items-center justify-center">
-                              {t.projects.viewProject}
-                              <ExternalLink className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
-                            </Link>
-                          </Button>
-                          <Button asChild className="flex-1 group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
-                            <Link href={project.github} target="_blank" className="flex items-center justify-center">
-                              {t.projects.viewCode}
-                              <Github className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
-                            </Link>
-                          </Button>
+                          <div className="flex-1">
+                            <Button asChild className="w-full group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
+                              <Link href={project.demo} target="_blank" className="flex items-center justify-center">
+                                {t.projects.viewProject}
+                                <ExternalLink className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
+                              </Link>
+                            </Button>
+                            {project.title === "Smart Pet Feeder System" && (
+                              <p className="text-xs text-muted-foreground text-center mt-1">ไม่ได้ deploy</p>
+                            )}
+                          </div>
+                          <div className="flex-1">
+                            <Button asChild className="w-full group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-9 rounded-lg px-3 font-medium text-xs">
+                              <Link href={project.github} target="_blank" className="flex items-center justify-center">
+                                {t.projects.viewCode}
+                                <Github className="w-3 h-3 ml-1 group-hover/btn:scale-110 transition-transform" />
+                              </Link>
+                            </Button>
+                            {project.title === "Smart Pet Feeder System" && (
+                              <p className="text-xs text-muted-foreground text-center mt-1">โค้ด Arduino</p>
+                            )}
+                          </div>
                         </div>
                     </CardContent>
                   </Card>
@@ -1008,18 +1031,28 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <Button asChild className="flex-1 group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium">
-                        <Link href={project.demo} target="_blank" className="flex items-center justify-center">
-                          {t.projects.viewProject}
-                          <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
-                        </Link>
-                      </Button>
-                      <Button asChild className="flex-1 group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium">
-                        <Link href={project.github} target="_blank" className="flex items-center justify-center">
-                          {t.projects.viewCode}
-                          <Github className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
-                        </Link>
-                      </Button>
+                      <div className="flex-1">
+                        <Button asChild className="w-full group/btn bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium">
+                          <Link href={project.demo} target="_blank" className="flex items-center justify-center">
+                            {t.projects.viewProject}
+                            <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
+                          </Link>
+                        </Button>
+                        {project.title === "Smart Pet Feeder System" && (
+                          <p className="text-xs text-muted-foreground text-center mt-1">ไม่ได้ deploy</p>
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <Button asChild className="w-full group/btn border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg transition-all duration-200 h-10 rounded-lg px-4 font-medium">
+                          <Link href={project.github} target="_blank" className="flex items-center justify-center">
+                            {t.projects.viewCode}
+                            <Github className="w-4 h-4 ml-2 group-hover/btn:scale-110 transition-transform" />
+                          </Link>
+                        </Button>
+                        {project.title === "Smart Pet Feeder System" && (
+                          <p className="text-xs text-muted-foreground text-center mt-1">โค้ด Arduino</p>
+                        )}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
